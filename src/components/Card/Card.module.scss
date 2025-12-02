@@ -1,0 +1,44 @@
+.card {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-bg-medium) 90%, transparent) 0%,
+    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%
+  );
+  border-radius: 16px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.cardPrimary {
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+.cardSecondary {
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 25%, transparent);
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--color-secondary) 15%, transparent);
+}
+
+.cardAnimated {
+  animation: fadeInUp 0.3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Respect reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .cardAnimated {
+    animation: none;
+    opacity: 1;
+  }
+}
