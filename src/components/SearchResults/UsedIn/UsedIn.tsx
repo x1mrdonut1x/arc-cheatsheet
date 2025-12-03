@@ -1,11 +1,12 @@
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
-import { ItemList } from '../ItemList/ItemList'
+import { Card } from '../../Card/Card'
+import { ItemGrid } from '../ItemGrid/ItemGrid'
 
 interface UsedInProps {
   item: Item
-  allItems: Item[]
-  onItemSelect?: (itemName: string) => void
+  allItems: Array<Item>
+  onItemSelect?: (id: number) => void
 }
 
 export function UsedIn({ item, allItems, onItemSelect }: UsedInProps) {
@@ -24,13 +25,18 @@ export function UsedIn({ item, allItems, onItemSelect }: UsedInProps) {
       })
   }, [item.id, allItems])
 
+  if (usedInItems.length === 0) {
+    return null
+  }
+
   return (
-    <ItemList
-      items={usedInItems}
-      title="Used In"
-      icon="🔧"
-      variant="secondary"
-      onItemSelect={onItemSelect}
-    />
+    <Card variant="secondary" title="Used In" icon="🔧">
+      <ItemGrid
+        items={usedInItems}
+        variant="secondary"
+        onItemSelect={onItemSelect}
+        ariaLabel={`Used In: ${usedInItems.length} item${usedInItems.length !== 1 ? 's' : ''}`}
+      />
+    </Card>
   )
 }

@@ -7,6 +7,7 @@ type Category =
   | 'Trinket'
   | 'Topside Material'
   | 'Key'
+  | 'Quick Use'
 
 type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary'
 
@@ -19,7 +20,6 @@ export type Item = {
   category: Category
   maxStackSize: number
   rarity: Rarity
-  recyclesTo: { id: number; amount: number }[]
-  quests: { id: number; amount: number }[]
-  workshop: { id: number; amount: number }[]
+  recyclesTo: Array<{ id: number; amount: number }>
+  workshop: Array<{ id: number; amount: number }>
 }

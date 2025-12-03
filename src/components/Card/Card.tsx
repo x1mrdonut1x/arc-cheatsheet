@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react'
+import { useId } from 'react'
 import classNames from 'classnames'
 import styles from './Card.module.scss'
+import type { ReactNode } from 'react'
 
 export type CardVariant = 'primary' | 'secondary'
 
@@ -9,6 +10,9 @@ interface CardProps {
   variant?: CardVariant
   className?: string
   animated?: boolean
+  title?: string
+  icon?: string
+  footer?: ReactNode
 }
 
 export function Card({
@@ -16,7 +20,12 @@ export function Card({
   variant = 'primary',
   className,
   animated = true,
+  title,
+  icon,
+  footer,
 }: CardProps) {
+  const titleId = useId()
+
   return (
     <div
       className={classNames(
@@ -29,7 +38,27 @@ export function Card({
         className
       )}
     >
-      {children}
+      {title ? (
+        <section aria-labelledby={titleId}>
+          <h4 id={titleId} className={styles.title}>
+            {icon && (
+              <span
+                className={classNames(styles.icon, {
+                  [styles.iconSpin]: variant === 'primary',
+                })}
+                aria-hidden="true"
+              >
+                {icon}
+              </span>
+            )}
+            {title}
+          </h4>
+          {children}
+          {footer}
+        </section>
+      ) : (
+        children
+      )}
     </div>
   )
 }

@@ -3,10 +3,18 @@ import styles from './SearchInput.module.scss'
 interface SearchInputProps {
   value: string
   onChange: (value: string) => void
+  onFocus?: () => void
+  onBlur?: () => void
   placeholder?: string
 }
 
-export function SearchInput({ value, onChange, placeholder = 'Search items...' }: SearchInputProps) {
+export function SearchInput({
+  value,
+  onChange,
+  onFocus,
+  onBlur,
+  placeholder = 'Search items...',
+}: SearchInputProps) {
   return (
     <div className={styles.container}>
       <input
@@ -14,6 +22,8 @@ export function SearchInput({ value, onChange, placeholder = 'Search items...' }
         className={styles.input}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onFocus={onFocus}
+        onBlur={onBlur}
         placeholder={placeholder}
         autoComplete="off"
       />

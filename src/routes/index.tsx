@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import classNames from 'classnames'
+import { useLayoutEffect, useState } from 'react'
 import { z } from 'zod'
-
 import { SearchInput } from '../components/SearchInput/SearchInput'
 import { SearchResults } from '../components/SearchResults/SearchResults'
-import { items } from '../data/data'
+import { useDebounce } from '../hooks/useDebounce'
+import { useGetItem, useSearchItems } from '../hooks/useItems'
 
 import styles from './index.module.scss'
 
@@ -19,79 +19,39 @@ export const Route = createFileRoute('/')({
 })
 
 function App() {
-  const { item: itemIdParam } = Route.useSearch()
+  const { item: selectedItemId } = Route.useSearch()
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedItemId, setSelectedItemId] = useState(itemIdParam)
-  const [filteredItems, setFilteredItems] = useState<typeof items>([])
+  const [isInputFocused, setIsInputFocused] = useState(false)
+  const debouncedQuery = useDebounce(searchQuery, 300)
 
-  // Helper to filter items based on query
-  const filterItems = useCallback((query: string) => {
-    if (!query.trim()) {
-      setFilteredItems([])
-      return
+  const { data: searchResults = [] } = useSearchItems(debouncedQuery)
+  const { data: selectedItem } = useGetItem(selectedItemId)
+
+  // Derive display items from state
+  const displayItems = selectedItem ? [selectedItem] : searchResults
+
+  // Show selected item name only when input is not focused
+  const displayQuery = selectedItem?.name ?? searchQuery
+  const hasSearchQuery = displayQuery.trim().length > 0
+
+  useLayoutEffect(() => {
+    if (searchResults.length === 1) {
+      navigate({ to: '/', search: { item: searchResults[0].id } })
     }
+  }, [navigate, searchResults])
 
-    const normalizedQuery = query.toLowerCase().trim()
-    const results = items.filter((item) => {
-      return item.name.toLowerCase().includes(normalizedQuery)
-    })
+  const handleItemSelect = (id: number) => {
+    navigate({ to: '/', search: { item: id } })
+  }
 
-    setFilteredItems(results)
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value)
 
-    // Auto-select when exactly one item is found via search
-    if (results.length === 1) {
-      const item = results[0]
-      setSelectedItemId(item.id)
-      navigate({ to: '/', search: { item: item.id } })
+    if (selectedItemId) {
+      navigate({ to: '/', search: {} })
     }
-  }, [navigate])
-
-  // Sync item param with state on mount
-  useEffect(() => {
-    if (itemIdParam === selectedItemId) return
-
-    setSelectedItemId(itemIdParam)
-    if (!itemIdParam) return
-
-    const item = items.find((i) => i.id === itemIdParam)
-    if (item) {
-      setSearchQuery(item.name)
-      setFilteredItems([item])
-    }
-  }, [itemIdParam])
-
-  const handleItemSelect = useCallback(
-    (itemName: string) => {
-      const item = items.find((i) => i.name === itemName)
-      if (!item) return
-
-      setSelectedItemId(item.id)
-      setSearchQuery(item.name)
-      setFilteredItems([item])
-      navigate({ to: '/', search: { item: item.id } })
-    },
-    [navigate],
-  )
-
-  const handleSearchChange = useCallback(
-    (value: string) => {
-      setSearchQuery(value)
-
-      if (selectedItemId) {
-        const currentItem = items.find((i) => i.id === selectedItemId)
-        if (currentItem && value !== currentItem.name) {
-          setSelectedItemId(undefined)
-          navigate({ to: '/', search: {} })
-        }
-      }
-
-      filterItems(value)
-    },
-    [selectedItemId, navigate, filterItems],
-  )
-
-  const hasSearchQuery = searchQuery.trim().length > 0
+  }
 
   return (
     <div className={styles.container}>
@@ -117,8 +77,10 @@ function App() {
         </p>
 
         <SearchInput
-          value={searchQuery}
+          value={displayQuery}
           onChange={handleSearchChange}
+          onFocus={() => setIsInputFocused(true)}
+          onBlur={() => setIsInputFocused(false)}
           placeholder="Search for items..."
         />
 
@@ -128,8 +90,8 @@ function App() {
           })}
         >
           <SearchResults
-            items={filteredItems}
-            searchQuery={searchQuery}
+            items={displayItems}
+            searchQuery={displayQuery}
             onItemSelect={handleItemSelect}
           />
         </div>

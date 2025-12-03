@@ -1,0 +1,23 @@
+.footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footerTotal {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.footerPercentagePositive {
+  color: #22c55e;
+}
+
+.footerPercentageNegative {
+  color: #ef4444;
+}

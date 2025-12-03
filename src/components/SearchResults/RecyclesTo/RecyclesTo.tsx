@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
-import { ItemList } from '../ItemList/ItemList'
-import styles from '../ItemList/ItemList.module.scss'
+import { Card } from '../../Card/Card'
+import { ItemGrid } from '../ItemGrid/ItemGrid'
+import styles from './RecyclesTo.module.scss'
 
 interface RecyclesToProps {
   item: Item
-  allItems: Item[]
-  onItemSelect?: (itemName: string) => void
+  allItems: Array<Item>
+  onItemSelect?: (id: number) => void
 }
 
 export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
@@ -23,14 +24,14 @@ export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
     if (recycledItems.length === 0) return null
 
     const totalRecycleValue = recycledItems.reduce(
-      (sum, { item: recycledItem, amount }) => sum + recycledItem.sellPrice * amount,
-      0
+      (sum, { item: recycledItem, amount }) =>
+        sum + recycledItem.sellPrice * amount,
+      0,
     )
     const originalPrice = item.sellPrice
     const difference = totalRecycleValue - originalPrice
-    const percentageChange = originalPrice > 0 
-      ? ((difference / originalPrice) * 100).toFixed(0)
-      : 0
+    const percentageChange =
+      originalPrice > 0 ? ((difference / originalPrice) * 100).toFixed(0) : 0
 
     return {
       total: totalRecycleValue,
@@ -38,6 +39,10 @@ export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
       percentage: Number(percentageChange),
     }
   }, [recycledItems, item.sellPrice])
+
+  if (recycledItems.length === 0) {
+    return null
+  }
 
   const footer = priceComparison ? (
     <div className={styles.footer}>
@@ -58,13 +63,13 @@ export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
   ) : null
 
   return (
-    <ItemList
-      items={recycledItems}
-      title="Recycles To"
-      icon="♻️"
-      variant="primary"
-      footer={footer}
-      onItemSelect={onItemSelect}
-    />
+    <Card variant="primary" title="Recycles To" icon="♻️" footer={footer}>
+      <ItemGrid
+        items={recycledItems}
+        variant="primary"
+        onItemSelect={onItemSelect}
+        ariaLabel={`Recycles To: ${recycledItems.length} item${recycledItems.length !== 1 ? 's' : ''}`}
+      />
+    </Card>
   )
 }

@@ -1,17 +1,18 @@
 import classNames from 'classnames'
-import type { Item } from '../../data/types'
 import { items as allItems } from '../../data/data'
-import { Card } from '../Card/Card'
+import type { Item } from '../../data/types'
 import { AnimatedList } from '../AnimatedList'
+import { Card } from '../Card/Card'
 import { ItemDetails } from './ItemDetails/ItemDetails'
+import { QuestList } from './QuestList/QuestList'
 import { RecyclesTo } from './RecyclesTo/RecyclesTo'
-import { UsedIn } from './UsedIn/UsedIn'
 import styles from './SearchResults.module.scss'
+import { UsedIn } from './UsedIn/UsedIn'
 
 interface SearchResultsProps {
-  items: Item[]
+  items: Array<Item>
   searchQuery: string
-  onItemSelect?: (itemName: string) => void
+  onItemSelect?: (id: number) => void
 }
 
 export function SearchResults({
@@ -26,7 +27,9 @@ export function SearchResults({
   if (items.length === 0) {
     return (
       <div className={styles.container} role="status" aria-live="polite">
-        <p className={styles.noResults}>No items found for "{searchQuery}"</p>
+        <p className={styles.noResults}>
+          No items found for &quot;{searchQuery}&quot;
+        </p>
       </div>
     )
   }
@@ -41,7 +44,8 @@ export function SearchResults({
       role="region"
     >
       <h2 className={styles.srOnly}>
-        {itemCount} result{itemCount !== 1 ? 's' : ''} for "{searchQuery}"
+        {itemCount} result{itemCount !== 1 ? 's' : ''} for &quot;{searchQuery}
+        &quot;
       </h2>
       <AnimatedList as="ul" className={styles.resultsList}>
         {items.map((item) => (
@@ -52,7 +56,7 @@ export function SearchResults({
             })}
             onClick={
               !isSingleItem && onItemSelect
-                ? () => onItemSelect(item.name)
+                ? () => onItemSelect(item.id)
                 : undefined
             }
             role={!isSingleItem && onItemSelect ? 'button' : undefined}
@@ -62,7 +66,7 @@ export function SearchResults({
                 ? (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
-                      onItemSelect(item.name)
+                      onItemSelect(item.id)
                     }
                   }
                 : undefined
@@ -107,6 +111,11 @@ export function SearchResults({
             onItemSelect={onItemSelect}
           />
           <UsedIn
+            item={items[0]}
+            allItems={allItems}
+            onItemSelect={onItemSelect}
+          />
+          <QuestList
             item={items[0]}
             allItems={allItems}
             onItemSelect={onItemSelect}

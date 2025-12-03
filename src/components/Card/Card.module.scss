@@ -7,6 +7,7 @@
   border-radius: 16px;
   padding: 20px;
   overflow: hidden;
+  max-width: 400px;
 }
 
 .cardPrimary {
@@ -35,10 +36,46 @@
   }
 }
 
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.iconSpin {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 // Respect reduced motion preferences
 @media (prefers-reduced-motion: reduce) {
   .cardAnimated {
     animation: none;
     opacity: 1;
+  }
+
+  .iconSpin {
+    animation: none;
   }
 }

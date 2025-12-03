@@ -1,5 +1,6 @@
-import { Children, useId, type ReactNode, type HTMLAttributes } from 'react'
 import classNames from 'classnames'
+import type { HTMLAttributes, ReactNode } from 'react'
+import { Children } from 'react'
 import { getStaggerStyle } from '../../utils/animation'
 import styles from './AnimatedList.module.scss'
 
@@ -17,15 +18,17 @@ export function AnimatedList({
   totalDuration = 0.3,
   ...rest
 }: AnimatedListProps) {
-  const id = useId()
   const childArray = Children.toArray(children)
   const itemCount = childArray.length
+
+  // Generate random keys when children change to re-trigger animations
+  const keys = childArray.map(() => crypto.randomUUID())
 
   return (
     <Component className={classNames(styles.list, className)} {...rest}>
       {childArray.map((child, index) => (
         <div
-          key={`${id}-${index}`}
+          key={keys[index]}
           className={styles.item}
           style={getStaggerStyle(index, itemCount, totalDuration)}
         >

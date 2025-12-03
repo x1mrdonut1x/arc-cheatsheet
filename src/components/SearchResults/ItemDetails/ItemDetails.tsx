@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import type { Item } from '../../../data/types'
 import styles from './ItemDetails.module.scss'
+import type { Item } from '../../../data/types'
 
 interface ItemDetailsProps {
   item: Item

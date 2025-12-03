@@ -1,54 +1,3 @@
-// Item List Section
-.section {
-  max-width: 400px;
-}
-
-.title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin: 0 0 16px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
-}
-
-.icon {
-  font-size: 18px;
-}
-
-.iconSpin {
-  animation: spin 3s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.container {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.listItem {
-  display: contents;
-}
-
 .item {
   display: flex;
   flex-direction: column;
@@ -99,6 +48,14 @@
       box-shadow: 0 8px 30px color-mix(in srgb, var(--color-secondary) 40%, transparent),
         0 0 20px color-mix(in srgb, var(--color-secondary) 30%, transparent);
     }
+  }
+}
+
+.itemHighlighted {
+  .imageWrapper {
+    box-shadow: 0 0 12px color-mix(in srgb, var(--color-primary) 60%, transparent);
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
   }
 }
 
@@ -172,44 +129,8 @@
   -webkit-box-orient: vertical;
 }
 
-.footer {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.footerTotal {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-}
-
-.footerPercentage {
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.footerPercentagePositive {
-  color: #22c55e;
-}
-
-.footerPercentageNegative {
-  color: #ef4444;
-}
-
 // Respect reduced motion preferences
 @media (prefers-reduced-motion: reduce) {
-  .iconSpin {
-    animation: none;
-  }
-
   .imageWrapper {
     transition: none;
   }

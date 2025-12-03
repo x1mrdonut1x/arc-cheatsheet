@@ -1,6 +1,6 @@
-import { Item } from './types'
+import type { Item } from './types'
 
-export const items: Item[] = [
+export const items: Array<Item> = [
   {
     id: 1,
     name: 'Advanced ARC Powercell',
@@ -17,7 +17,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -40,7 +39,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -72,7 +70,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -91,7 +88,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -105,7 +101,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -119,7 +114,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -142,7 +136,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -159,12 +152,6 @@ export const items: Item[] = [
       {
         id: 35,
         amount: 10,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 2,
       },
     ],
     workshop: [
@@ -190,7 +177,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -216,12 +202,6 @@ export const items: Item[] = [
       {
         id: 103,
         amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 3,
       },
     ],
     workshop: [
@@ -255,7 +235,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -279,7 +258,6 @@ export const items: Item[] = [
         amount: 16,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -298,7 +276,6 @@ export const items: Item[] = [
         amount: 16,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -317,7 +294,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -341,7 +317,6 @@ export const items: Item[] = [
         amount: 12,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -355,7 +330,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -379,7 +353,6 @@ export const items: Item[] = [
         amount: 14,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -398,7 +371,6 @@ export const items: Item[] = [
         amount: 16,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -412,7 +384,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -435,7 +406,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -456,16 +426,6 @@ export const items: Item[] = [
     recyclesTo: [
       {
         id: 103,
-        amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
-      },
-      {
-        id: 0,
         amount: 2,
       },
     ],
@@ -491,7 +451,6 @@ export const items: Item[] = [
         amount: 10,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -505,7 +464,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -528,7 +486,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -547,7 +504,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Epic',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -570,7 +526,6 @@ export const items: Item[] = [
         amount: 6,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -589,7 +544,6 @@ export const items: Item[] = [
         amount: 4,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -612,7 +566,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -635,7 +588,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -654,7 +606,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -673,7 +624,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -692,7 +642,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -711,7 +660,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -725,7 +673,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -744,7 +691,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -763,7 +709,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -782,7 +727,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -805,7 +749,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -828,7 +771,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -851,7 +793,6 @@ export const items: Item[] = [
         amount: 4,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -874,7 +815,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -898,7 +838,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -922,7 +861,6 @@ export const items: Item[] = [
         amount: 4,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -941,7 +879,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -960,7 +897,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -979,7 +915,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1002,7 +937,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1026,7 +960,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1045,7 +978,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1064,7 +996,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1083,7 +1014,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1097,7 +1027,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1120,7 +1049,6 @@ export const items: Item[] = [
         amount: 9,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1139,7 +1067,6 @@ export const items: Item[] = [
         amount: 11,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1158,7 +1085,6 @@ export const items: Item[] = [
         amount: 12,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1181,7 +1107,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1205,7 +1130,6 @@ export const items: Item[] = [
         amount: 9,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1224,7 +1148,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1241,12 +1164,6 @@ export const items: Item[] = [
       {
         id: 66,
         amount: 6,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
       },
     ],
     workshop: [
@@ -1276,7 +1193,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1299,7 +1215,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1322,7 +1237,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1336,7 +1250,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1359,7 +1272,6 @@ export const items: Item[] = [
         amount: 4,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1378,7 +1290,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1397,7 +1308,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1420,7 +1330,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1439,12 +1348,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
-      },
-    ],
     workshop: [],
   },
   {
@@ -1458,7 +1361,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1472,7 +1374,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1495,7 +1396,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1523,12 +1423,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
-      },
-    ],
     workshop: [],
   },
   {
@@ -1551,7 +1445,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1574,7 +1467,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1598,7 +1490,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1617,7 +1508,6 @@ export const items: Item[] = [
         amount: 12,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1640,7 +1530,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1657,12 +1546,6 @@ export const items: Item[] = [
       {
         id: 19,
         amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
       },
     ],
     workshop: [],
@@ -1687,7 +1570,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1706,7 +1588,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1726,12 +1607,6 @@ export const items: Item[] = [
       },
       {
         id: 60,
-        amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
         amount: 2,
       },
     ],
@@ -1758,7 +1633,6 @@ export const items: Item[] = [
         amount: 11,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1781,7 +1655,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1800,7 +1673,6 @@ export const items: Item[] = [
         amount: 7,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1819,7 +1691,6 @@ export const items: Item[] = [
         amount: 12,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1842,7 +1713,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1870,7 +1740,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1893,7 +1762,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1916,7 +1784,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -1939,7 +1806,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -1958,7 +1824,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Epic',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -1979,12 +1844,6 @@ export const items: Item[] = [
       {
         id: 3,
         amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
       },
     ],
     workshop: [
@@ -2010,7 +1869,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2034,7 +1892,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2048,7 +1905,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2067,7 +1923,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2090,7 +1945,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2110,12 +1964,6 @@ export const items: Item[] = [
       },
       {
         id: 171,
-        amount: 1,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
         amount: 1,
       },
     ],
@@ -2141,7 +1989,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2164,7 +2011,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2188,7 +2034,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2207,7 +2052,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2221,7 +2065,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2253,7 +2096,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2276,7 +2118,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2299,7 +2140,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2318,7 +2158,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2341,7 +2180,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2360,7 +2198,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2379,7 +2216,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2393,7 +2229,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2412,7 +2247,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2431,7 +2265,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2450,7 +2283,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2469,7 +2301,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2483,7 +2314,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2506,7 +2336,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2520,7 +2349,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2543,7 +2371,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2566,7 +2393,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2594,7 +2420,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2608,7 +2433,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2631,7 +2455,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2650,7 +2473,6 @@ export const items: Item[] = [
         amount: 4,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2678,12 +2500,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
-      },
-    ],
     workshop: [],
   },
   {
@@ -2697,7 +2513,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -2725,7 +2540,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2748,7 +2562,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2771,7 +2584,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2794,7 +2606,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2817,7 +2628,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2831,7 +2641,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2850,7 +2659,6 @@ export const items: Item[] = [
         amount: 10,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2864,7 +2672,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -2887,7 +2694,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2910,7 +2716,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2931,12 +2736,6 @@ export const items: Item[] = [
       {
         id: 2,
         amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
       },
     ],
     workshop: [
@@ -2966,7 +2765,6 @@ export const items: Item[] = [
         amount: 6,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -2985,7 +2783,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3004,7 +2801,6 @@ export const items: Item[] = [
         amount: 5,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3018,7 +2814,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -3041,7 +2836,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3055,7 +2849,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -3074,7 +2867,6 @@ export const items: Item[] = [
         amount: 18,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3088,7 +2880,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3116,7 +2907,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3139,7 +2929,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3158,7 +2947,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3177,7 +2965,6 @@ export const items: Item[] = [
         amount: 10,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3200,7 +2987,6 @@ export const items: Item[] = [
         amount: 6,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3223,7 +3009,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3242,7 +3027,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3265,7 +3049,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3293,7 +3076,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3321,7 +3103,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3345,7 +3126,6 @@ export const items: Item[] = [
         amount: 8,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3368,7 +3148,6 @@ export const items: Item[] = [
         amount: 14,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3391,7 +3170,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3414,7 +3192,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3442,7 +3219,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3465,7 +3241,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3479,7 +3254,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -3498,7 +3272,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3515,12 +3288,6 @@ export const items: Item[] = [
       {
         id: 10,
         amount: 4,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 2,
       },
     ],
     workshop: [
@@ -3550,7 +3317,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3573,7 +3339,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3596,7 +3361,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3619,7 +3383,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3642,7 +3405,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3656,7 +3418,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -3675,7 +3436,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3696,12 +3456,6 @@ export const items: Item[] = [
       {
         id: 10,
         amount: 2,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
       },
     ],
     workshop: [
@@ -3731,7 +3485,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3759,12 +3512,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
-      },
-    ],
     workshop: [],
   },
   {
@@ -3783,7 +3530,6 @@ export const items: Item[] = [
         amount: 12,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3802,7 +3548,6 @@ export const items: Item[] = [
         amount: 11,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3825,7 +3570,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3848,7 +3592,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3871,7 +3614,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3899,7 +3641,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -3918,7 +3659,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -3937,7 +3677,6 @@ export const items: Item[] = [
         amount: 12,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3960,7 +3699,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3983,7 +3721,6 @@ export const items: Item[] = [
         amount: 5,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -3997,7 +3734,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Rare',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -4011,7 +3747,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Uncommon',
     recyclesTo: [],
-    quests: [],
     workshop: [
       {
         id: 0,
@@ -4030,7 +3765,6 @@ export const items: Item[] = [
     maxStackSize: 1,
     rarity: 'Common',
     recyclesTo: [],
-    quests: [],
     workshop: [],
   },
   {
@@ -4053,7 +3787,6 @@ export const items: Item[] = [
         amount: 1,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -4074,12 +3807,6 @@ export const items: Item[] = [
       {
         id: 60,
         amount: 1,
-      },
-    ],
-    quests: [
-      {
-        id: 0,
-        amount: 2,
       },
     ],
     workshop: [
@@ -4109,7 +3836,6 @@ export const items: Item[] = [
         amount: 3,
       },
     ],
-    quests: [],
     workshop: [],
   },
   {
@@ -4132,12 +3858,6 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [
-      {
-        id: 0,
-        amount: 1,
-      },
-    ],
     workshop: [],
   },
   {
@@ -4156,20 +3876,702 @@ export const items: Item[] = [
         amount: 2,
       },
     ],
-    quests: [
-      {
-        id: 0,
-        amount: 6,
-      },
-      {
-        id: 0,
-        amount: 3,
-      },
-      {
-        id: 0,
-        amount: 5,
-      },
-    ],
     workshop: [],
   },
-]
+  {
+    id: 193,
+    name: 'Rattler III',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 194,
+    name: 'Medium Ammo',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 6,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 195,
+    name: 'Tactical Mk. 1',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 196,
+    name: 'Adrenaline Shot',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 300,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 197,
+    name: 'Sterilized Bandage',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 198,
+    name: 'Light Shield',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 199,
+    name: 'Compensator I',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 200,
+    name: 'Stable Stock I',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 201,
+    name: 'Dam Testing Annex Key',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 100,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 202,
+    name: 'Zipline',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 1000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 203,
+    name: 'Smoke Grenade',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 1000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 204,
+    name: 'Vita Shot',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 205,
+    name: 'Aviator (Outfit)',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 0,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 206,
+    name: 'Noisemaker',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 207,
+    name: 'Blue Light Stick',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 150,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 208,
+    name: 'Renegade I',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 7000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 209,
+    name: 'Stable Stock III',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 210,
+    name: 'Arpeggio I',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5500,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 211,
+    name: 'Compensator II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 212,
+    name: 'Anvil III',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 10000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 213,
+    name: 'Heavy Ammo',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 12,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 214,
+    name: 'Door Blocker',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 270,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 215,
+    name: 'Combat Mk. 1',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 216,
+    name: 'Medium Shield',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 217,
+    name: 'Tagging Grenade',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 1000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 218,
+    name: 'Vita Spray',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2880,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Epic',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 219,
+    name: 'Yellow Light Stick',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 150,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 220,
+    name: 'Raider Hatch Key',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 221,
+    name: 'Binoculars',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 222,
+    name: 'Vulcano III',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 17000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Epic',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 223,
+    name: 'Shotgun Ammo',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 20,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 224,
+    name: 'Snap Hook',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 14000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Legendary',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 225,
+    name: 'Shotgun Choke II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 226,
+    name: 'Angled Grip II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 0,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 227,
+    name: 'Silencer II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 228,
+    name: 'Extended Light Mag I',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 229,
+    name: 'Photoelectric Cloak',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Epic',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 230,
+    name: 'Jolt Mine',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 850,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 231,
+    name: 'Wolfpack',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Epic',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 232,
+    name: 'Heavy Shield',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5500,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Epic',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 233,
+    name: 'Shrapnel Grenade',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 800,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 234,
+    name: 'Barricade Kit',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 640,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 235,
+    name: 'Cheer Emote',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 0,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 236,
+    name: 'Stitcher II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 237,
+    name: 'Hullcracker Blueprint',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Legendary',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 238,
+    name: 'Dam Staff Room Key',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 100,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 239,
+    name: 'Il Toro I',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 5000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 240,
+    name: 'Blaze Grenade',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 1600,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 241,
+    name: 'Muzzle Brake II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 242,
+    name: 'Vertical Grip II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 243,
+    name: 'Stable Stock II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 244,
+    name: 'Snap Blast Grenade',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 800,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 245,
+    name: 'Heavy Fuze Grenade',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 1600,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 246,
+    name: 'Looting Mk. 2',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Rare',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 247,
+    name: 'Green Light Stick',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 150,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 248,
+    name: 'Gas Mine',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 270,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 249,
+    name: 'Extended Light Mag II',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 2000,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Uncommon',
+    recyclesTo: [],
+    workshop: [],
+  },
+  {
+    id: 250,
+    name: 'Light Ammo',
+    imageUrl: 'https://cdn.metaforge.app/arc-raiders/custom/gearbox.png',
+    description: 'content=',
+    sellPrice: 4,
+    category: 'Misc',
+    maxStackSize: 1,
+    rarity: 'Common',
+    recyclesTo: [],
+    workshop: [],
+  },
+] satisfies Array<Item>
