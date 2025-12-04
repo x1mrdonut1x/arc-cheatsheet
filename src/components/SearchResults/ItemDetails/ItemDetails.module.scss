@@ -1,7 +1,8 @@
 .detailContent {
   padding: 24px;
   width: 100%;
-  border-top: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+  border-top: 1px solid
+    color-mix(in srgb, var(--color-primary) 20%, transparent);
   animation: slideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   animation-delay: 0.15s;
   opacity: 0;
@@ -26,8 +27,8 @@
 .rarityTag {
   display: inline-flex;
   align-items: center;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 2px 6px;
+  border-radius: 4px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -60,7 +61,8 @@
 
 .rarityEpic {
   background: color-mix(in srgb, var(--color-primary-light) 25%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-primary-light) 50%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--color-primary-light) 50%, transparent);
   color: #c084fc;
 }
 
@@ -81,45 +83,66 @@
 .detailDescription {
   font-size: 14px;
   color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent);
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   line-height: 1.6;
 }
 
-.detailStats {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+.table {
+  width: 100%;
+  border-collapse: collapse;
   background: color-mix(in srgb, var(--color-primary) 8%, transparent);
   border-radius: 8px;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
   overflow: hidden;
-}
 
-.statRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+  th,
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-primary) 12%, transparent);
+  }
 
-  &:last-child {
+  th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+  }
+
+  td {
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  tr:last-child th,
+  tr:last-child td {
     border-bottom: none;
   }
 }
 
-
-.statLabel {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin: 0;
+.statsRow {
+  display: flex;
+  justify-content: space-around;
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 8px;
 }
 
-.statValue {
-  font-size: 15px;
-  font-weight: 700;
+.statItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--color-text-primary);
-  margin: 0;
+  border-right: 1px solid
+    color-mix(in srgb, var(--color-primary) 12%, transparent);
+
+  &:last-child {
+    border-right: none;
+  }
 }

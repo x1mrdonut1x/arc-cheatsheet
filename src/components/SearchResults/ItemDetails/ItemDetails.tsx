@@ -1,6 +1,8 @@
 import classNames from 'classnames'
-import styles from './ItemDetails.module.scss'
+import { Box, Coins, Weight } from 'lucide-react'
+import type { ReactNode } from 'react'
 import type { Item } from '../../../data/types'
+import styles from './ItemDetails.module.scss'
 
 interface ItemDetailsProps {
   item: Item
@@ -24,34 +26,70 @@ const getRarityClass = (rarity: string) => {
 }
 
 export function ItemDetails({ item }: ItemDetailsProps) {
+  const metaEntries = item.meta ? Object.entries(item.meta) : []
+  const stats = [
+    item.maxStackSize !== undefined && {
+      icon: <Box size={16} />,
+      value: item.maxStackSize,
+      label: 'Stack Size',
+    },
+    item.weight !== undefined && {
+      icon: <Weight size={16} />,
+      value: item.weight,
+      label: 'Weight',
+    },
+    {
+      icon: <Coins size={16} />,
+      value: item.sellPrice.toLocaleString(),
+      label: 'Sell Price',
+    },
+  ].filter(Boolean) as Array<{
+    icon: ReactNode
+    value: string | number
+    label: string
+  }>
+
   return (
     <div className={styles.detailContent}>
       <div className={styles.tags} role="group" aria-label="Item categories">
         <span className={styles.categoryTag}>{item.category}</span>
-        <span className={classNames(styles.rarityTag, getRarityClass(item.rarity))}>
+        <span
+          className={classNames(styles.rarityTag, getRarityClass(item.rarity))}
+        >
           {item.rarity}
         </span>
       </div>
-      <h3 id={`item-name-${item.id}`} className={styles.detailName}>
-        {item.name}
-      </h3>
+      <h3 className={styles.detailName}>{item.name}</h3>
       {item.description && (
         <p className={styles.detailDescription}>{item.description}</p>
       )}
-      <dl className={styles.detailStats}>
-        <div className={styles.statRow}>
-          <dt className={styles.statLabel}>Stack Size</dt>
-          <dd className={styles.statValue}>{item.maxStackSize}</dd>
-        </div>
-        <div className={styles.statRow}>
-          <dt className={styles.statLabel}>Sell Price</dt>
-          <dd className={styles.statValue}>
-            <span aria-label={`${item.sellPrice.toLocaleString()} credits`}>
-              {item.sellPrice.toLocaleString()} ₳
-            </span>
-          </dd>
-        </div>
-      </dl>
+
+      {(item.canBeFoundIn || metaEntries.length > 0) && (
+        <table className={styles.table}>
+          <tbody>
+            {item.canBeFoundIn && (
+              <tr>
+                <th>Can be found in</th>
+                <td>{item.canBeFoundIn.split(',').join(', ')}</td>
+              </tr>
+            )}
+            {metaEntries.map(([key, value]) => (
+              <tr key={key}>
+                <th>{key}</th>
+                <td>{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      <div className={styles.statsRow}>
+        {stats.map((stat) => (
+          <div key={stat.label} className={styles.statItem} title={stat.label}>
+            <span aria-hidden="true">{stat.icon}</span> {stat.value}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

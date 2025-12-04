@@ -1,22 +1,30 @@
 .card {
-  background: linear-gradient(145deg,
+  background: linear-gradient(
+    145deg,
     color-mix(in srgb, var(--color-bg-medium) 90%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%);
-  border-radius: 16px;
+    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%
+  );
+  border-radius: var(--card-radius);
   padding: 20px;
   overflow: hidden;
   max-width: 400px;
 }
 
+.cardNoPadding {
+  padding: 0;
+}
+
 .cardPrimary {
   border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
-  box-shadow: 0 4px 24px color-mix(in srgb, var(--color-primary) 15%, transparent),
+  box-shadow:
+    0 4px 24px color-mix(in srgb, var(--color-primary) 15%, transparent),
     0 0 0 1px color-mix(in srgb, var(--color-primary) 10%, transparent) inset;
 }
 
 .cardSecondary {
   border: 1px solid color-mix(in srgb, var(--color-secondary) 25%, transparent);
-  box-shadow: 0 4px 24px color-mix(in srgb, var(--color-secondary) 15%, transparent),
+  box-shadow:
+    0 4px 24px color-mix(in srgb, var(--color-secondary) 15%, transparent),
     0 0 0 1px color-mix(in srgb, var(--color-secondary) 10%, transparent) inset;
 }
 
@@ -48,28 +56,17 @@
   justify-content: center;
   gap: 8px;
   padding-bottom: 12px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-text-muted) 20%, transparent);
 }
 
 .icon {
   font-size: 18px;
 }
 
-.iconSpin {
-  animation: spin 3s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .cardAnimated {
     animation: none;
     opacity: 1;
-  }
-  .iconSpin {
-    animation: none;
   }
 }

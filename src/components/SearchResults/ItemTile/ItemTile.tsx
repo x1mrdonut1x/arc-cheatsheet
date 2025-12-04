@@ -1,12 +1,11 @@
-import classNames from 'classnames'
-import styles from './ItemTile.module.scss'
 import type { Item } from '../../../data/types'
+import styles from './ItemTile.module.scss'
 
 export type ItemTileVariant = 'primary' | 'secondary'
 
 interface ItemTileProps {
   item: Item
-  amount: number
+  amount?: number
   variant?: ItemTileVariant
   highlighted?: boolean
   onClick?: (id: number) => void
@@ -19,52 +18,29 @@ export function ItemTile({
   highlighted = false,
   onClick,
 }: ItemTileProps) {
-  const handleClick = () => {
-    onClick?.(item.id)
-  }
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      onClick?.(item.id)
-    }
-  }
-
   return (
     <button
-      className={classNames(styles.item, {
-        [styles.itemClickable]: !!onClick,
-        [styles.itemPrimary]: variant === 'primary',
-        [styles.itemSecondary]: variant === 'secondary',
-        [styles.itemHighlighted]: highlighted,
-      })}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
+      className={styles.item}
+      onClick={() => onClick?.(item.id)}
       type="button"
       aria-label={`${item.name}, quantity ${amount}. ${onClick ? 'Press Enter to select' : ''}`}
       disabled={!onClick}
+      data-variant={variant}
+      data-rarity={item.rarity.toLowerCase()}
+      data-highlighted={highlighted || undefined}
     >
-      <div className={styles.imageWrapper}>
-        <img
-          src={item.imageUrl}
-          alt=""
-          aria-hidden="true"
-          className={styles.image}
-          referrerPolicy="no-referrer"
-        />
-        <span
-          className={classNames(styles.amountBadge, {
-            [styles.amountBadgePrimary]: variant === 'primary',
-            [styles.amountBadgeSecondary]: variant === 'secondary',
-          })}
-          aria-hidden="true"
-        >
-          ×{amount}
-        </span>
+      <div className={styles.imageBackground}>
+        <div className={styles.imageWrapper}>
+          <img
+            src={item.imageUrl}
+            alt=""
+            className={styles.image}
+            referrerPolicy="no-referrer"
+          />
+          {amount && <span className={styles.badge}>×{amount}</span>}
+        </div>
       </div>
-      <span className={styles.name} aria-hidden="true">
-        {item.name}
-      </span>
+      <span className={styles.name}>{item.name}</span>
     </button>
   )
 }

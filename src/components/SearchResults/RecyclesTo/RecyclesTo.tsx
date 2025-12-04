@@ -1,3 +1,4 @@
+import { Recycle } from 'lucide-react'
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
 import { Card } from '../../Card/Card'
@@ -63,7 +64,7 @@ export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
   ) : null
 
   return (
-    <Card variant="primary" title="Recycles To" icon="♻️" footer={footer}>
+    <Card variant="primary" title="Recycles To" icon={<Recycle size={18} />} footer={footer}>
       <ItemGrid
         items={recycledItems}
         variant="primary"

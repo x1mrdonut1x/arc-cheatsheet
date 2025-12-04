@@ -16,6 +16,16 @@
   --color-quest-light: #f5d93a;
   --color-quest-dark: #c9a90a;
   
+  /* Rarity colors */
+  --color-rarity-common: #9ca3af;
+  --color-rarity-uncommon: #22c55e;
+  --color-rarity-rare: #3b82f6;
+  --color-rarity-epic: #a855f7;
+  --color-rarity-legendary: #f59e0b;
+  
+  /* Layout */
+  --card-radius: 16px;
+  
   /* Background colors */
   --color-bg-dark: #0f0a1a;
   --color-bg-medium: #1e1432;

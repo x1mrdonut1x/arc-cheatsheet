@@ -1,9 +1,9 @@
-import classNames from 'classnames'
 import { items as allItems } from '../../data/items'
 import type { Item } from '../../data/types'
 import { AnimatedList } from '../AnimatedList'
 import { Card } from '../Card/Card'
 import { ItemDetails } from './ItemDetails/ItemDetails'
+import { ItemTile } from './ItemTile/ItemTile'
 import { QuestList } from './QuestList/QuestList'
 import { RecyclesTo } from './RecyclesTo/RecyclesTo'
 import styles from './SearchResults.module.scss'
@@ -49,54 +49,29 @@ export function SearchResults({
       </h2>
       <AnimatedList as="ul" className={styles.resultsList}>
         {items.map((item) => (
-          <li
-            key={item.id}
-            className={classNames(styles.item, {
-              [styles.itemClickable]: !isSingleItem && onItemSelect,
-            })}
-            onClick={
-              !isSingleItem && onItemSelect
-                ? () => onItemSelect(item.id)
-                : undefined
-            }
-            role={!isSingleItem && onItemSelect ? 'button' : undefined}
-            tabIndex={!isSingleItem && onItemSelect ? 0 : undefined}
-            onKeyDown={
-              !isSingleItem && onItemSelect
-                ? (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      onItemSelect(item.id)
-                    }
-                  }
-                : undefined
-            }
-          >
+          <li key={item.id}>
             {isSingleItem ? (
-              <Card variant="primary" className={styles.itemCard}>
-                <article aria-labelledby={`item-name-${item.id}`}>
-                  <img
-                    src={item.imageUrl}
-                    alt=""
-                    aria-hidden="true"
-                    className={styles.itemImageLarge}
-                    referrerPolicy="no-referrer"
-                  />
-                  <span className={styles.srOnly}>{item.name}</span>
+              <Card variant="primary" className={styles.itemCard} noPadding>
+                <article
+                  className={styles.singleItem}
+                  aria-labelledby={`item-name-${item.id}`}
+                  data-rarity={item.rarity.toLowerCase()}
+                >
+                  <div className={styles.imageBackground}>
+                    <div className={styles.imageWrapper}>
+                      <img
+                        src={item.imageUrl}
+                        alt=""
+                        className={styles.image}
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </div>
                   <ItemDetails item={item} />
                 </article>
               </Card>
             ) : (
-              <article aria-labelledby={`item-name-${item.id}`}>
-                <img
-                  src={item.imageUrl}
-                  alt=""
-                  aria-hidden="true"
-                  className={styles.itemImage}
-                  referrerPolicy="no-referrer"
-                />
-                <span className={styles.srOnly}>{item.name}</span>
-              </article>
+              <ItemTile item={item} onClick={onItemSelect} />
             )}
           </li>
         ))}

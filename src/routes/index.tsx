@@ -32,7 +32,9 @@ function App() {
   const displayItems = selectedItem ? [selectedItem] : searchResults
 
   // Show selected item name only when input is not focused
-  const displayQuery = selectedItem?.name ?? searchQuery
+  const displayQuery = isInputFocused
+    ? searchQuery
+    : (selectedItem?.name ?? searchQuery)
   const hasSearchQuery = displayQuery.trim().length > 0
 
   useLayoutEffect(() => {

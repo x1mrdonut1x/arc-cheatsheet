@@ -21,39 +21,6 @@
   padding: 0;
 }
 
-.item {
-  transition: all 0.3s ease;
-}
-
-.itemClickable {
-  cursor: pointer;
-  border-radius: 12px;
-  padding: 8px;
-  background: color-mix(in srgb, var(--color-bg-medium) 50%, transparent);
-  border: 1px solid transparent;
-
-  &:hover {
-    background: color-mix(in srgb, var(--color-bg-medium) 80%, transparent);
-    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 30px color-mix(in srgb, var(--color-primary) 40%, transparent),
-      0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
-
-    .itemImage {
-      filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--color-primary) 40%, transparent));
-    }
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 4px;
-  }
-}
-
 .itemCard {
   article {
     display: flex;
@@ -62,28 +29,59 @@
   }
 }
 
-.itemImage {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+.singleItem {
+  --rarity: var(--color-rarity-common);
+  --radius: 4px;
 
-  &:hover {
-    border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
-    box-shadow: 0 0 20px
-      color-mix(in srgb, var(--color-primary) 30%, transparent);
+  &[data-rarity='common'] {
+    --rarity: var(--color-rarity-common);
+  }
+
+  &[data-rarity='uncommon'] {
+    --rarity: var(--color-rarity-uncommon);
+  }
+
+  &[data-rarity='rare'] {
+    --rarity: var(--color-rarity-rare);
+  }
+
+  &[data-rarity='epic'] {
+    --rarity: var(--color-rarity-epic);
+  }
+
+  &[data-rarity='legendary'] {
+    --rarity: var(--color-rarity-legendary);
   }
 }
 
-.itemImageLarge {
+.imageBackground {
+  width: 100%;
+  background: var(--rarity);
+  border-radius: var(--radius);
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 2px);
+  border-radius: var(--radius);
+  border-top-right-radius: var(--card-radius);
+  border-top-left-radius: var(--card-radius);
+  border-bottom-left-radius: 24px;
+  margin: 1px;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--rarity) 50%, black),
+    black
+  );
+}
+
+.image {
+  padding: 16px;
   width: 160px;
   height: 160px;
   object-fit: contain;
-  border-radius: 6px;
-  filter: drop-shadow(
-    0 4px 20px color-mix(in srgb, var(--color-primary) 30%, transparent)
-  );
 }
 
 .noResults {
@@ -101,15 +99,4 @@
   margin-top: 32px;
   padding: 0 8px;
   justify-content: center;
-}
-
-// Respect reduced motion preferences
-@include reduced-motion {
-  .itemClickable {
-    transition: none;
-  }
-
-  .itemImage {
-    transition: none;
-  }
 }

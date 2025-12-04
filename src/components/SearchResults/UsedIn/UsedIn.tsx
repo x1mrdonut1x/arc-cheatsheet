@@ -1,3 +1,4 @@
+import { Wrench } from 'lucide-react'
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
 import { Card } from '../../Card/Card'
@@ -30,7 +31,7 @@ export function UsedIn({ item, allItems, onItemSelect }: UsedInProps) {
   }
 
   return (
-    <Card variant="secondary" title="Used In" icon="🔧">
+    <Card variant="secondary" title="Used In" icon={<Wrench size={18} />}>
       <ItemGrid
         items={usedInItems}
         variant="secondary"

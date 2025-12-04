@@ -11,8 +11,9 @@ interface CardProps {
   className?: string
   animated?: boolean
   title?: string
-  icon?: string
+  icon?: ReactNode
   footer?: ReactNode
+  noPadding?: boolean
 }
 
 export function Card({
@@ -23,6 +24,7 @@ export function Card({
   title,
   icon,
   footer,
+  noPadding,
 }: CardProps) {
   const titleId = useId()
 
@@ -34,6 +36,7 @@ export function Card({
           [styles.cardPrimary]: variant === 'primary',
           [styles.cardSecondary]: variant === 'secondary',
           [styles.cardAnimated]: animated,
+          [styles.cardNoPadding]: noPadding,
         },
         className,
       )}
@@ -42,12 +45,7 @@ export function Card({
         <section aria-labelledby={titleId}>
           <h4 id={titleId} className={styles.title}>
             {icon && (
-              <span
-                className={classNames(styles.icon, {
-                  [styles.iconSpin]: variant === 'primary',
-                })}
-                aria-hidden="true"
-              >
+              <span className={classNames(styles.icon)} aria-hidden="true">
                 {icon}
               </span>
             )}

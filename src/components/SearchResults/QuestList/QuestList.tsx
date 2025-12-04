@@ -1,3 +1,4 @@
+import { Check, Flag } from 'lucide-react'
 import { useMemo } from 'react'
 import { quests } from '../../../data/quests'
 import { traders } from '../../../data/traders'
@@ -5,8 +6,7 @@ import type { Item } from '../../../data/types'
 import { useCompletedQuests } from '../../../hooks/useCompletedQuests'
 import { AnimatedList } from '../../AnimatedList'
 import { Card } from '../../Card/Card'
-import type { ItemWithAmount } from '../ItemGrid/ItemGrid'
-import { ItemGrid } from '../ItemGrid/ItemGrid'
+import { ItemTile } from '../ItemTile/ItemTile'
 import styles from './QuestList.module.scss'
 
 interface QuestListProps {
@@ -24,16 +24,21 @@ export function QuestList({ item, allItems, onItemSelect }: QuestListProps) {
         quest.items_needed.some((neededItem) => neededItem.id === item.id),
       )
       .map((quest) => {
-        const questItems: Array<ItemWithAmount> = quest.items_needed
+        const questItems = quest.items_needed
           .map((neededItem) => {
             const foundItem = allItems.find((i) => i.id === neededItem.id)
             return foundItem
               ? { item: foundItem, amount: neededItem.amount }
               : null
           })
-          .filter((x): x is ItemWithAmount => x !== null)
+          .filter((x) => x !== null)
 
-        return { ...quest, questItems, isCompleted: isCompleted(quest.id) }
+        return {
+          ...quest,
+          questItems,
+          isCompleted: isCompleted(quest.id),
+          trader: traders.find((t) => t.id === quest.trader),
+        }
       })
   }, [item.id, allItems, isCompleted])
 
@@ -42,34 +47,39 @@ export function QuestList({ item, allItems, onItemSelect }: QuestListProps) {
   }
 
   return (
-    <Card variant="secondary" title="Quests" icon="📜">
-      <AnimatedList
-        as="ul"
+    <Card variant="secondary" title="Quests" icon={<Flag size={18} />}>
+      <ul
         className={styles.questList}
-        aria-label={`Quests requiring ${item.name}: ${relatedQuests.length} quest${relatedQuests.length !== 1 ? 's' : ''}`}
+        aria-label={`Quests requiring ${item.name}`}
       >
         {relatedQuests.map((quest) => (
           <li key={quest.id} className={styles.questItem}>
             <div className={styles.questHeader}>
-              <span className={styles.questName}>{quest.name}</span>
               {quest.isCompleted && (
-                <span className={styles.completedBadge}>✓ Completed</span>
+                <Check size={16} className={styles.completedIcon} />
               )}
-              <span className={styles.questTrader}>
-                {traders.find((trader) => trader.id === quest.trader)?.name}
+              <span
+                className={styles.questName}
+                data-completed={quest.isCompleted || undefined}
+              >
+                {quest.name}
               </span>
+              <span className={styles.questTrader}>{quest.trader?.name}</span>
             </div>
-            <div className={styles.itemsContainer}>
-              <ItemGrid
-                items={quest.questItems}
-                variant="secondary"
-                highlightedItemId={item.id}
-                onItemSelect={onItemSelect}
-              />
-            </div>
+            <AnimatedList className={styles.itemsList}>
+              {quest.questItems.map(({ item: questItem, amount }) => (
+                <ItemTile
+                  key={questItem.id}
+                  item={questItem}
+                  amount={amount}
+                  variant="secondary"
+                  onClick={onItemSelect}
+                />
+              ))}
+            </AnimatedList>
           </li>
         ))}
-      </AnimatedList>
+      </ul>
     </Card>
   )
 }
