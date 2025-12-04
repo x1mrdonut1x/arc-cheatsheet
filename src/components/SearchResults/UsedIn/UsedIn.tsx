@@ -1,30 +1,16 @@
+import { useSearch } from '@tanstack/react-router'
 import { Wrench } from 'lucide-react'
-import { useMemo } from 'react'
-import type { Item } from '../../../data/types'
+import type { UsedInInfo } from '../../../hooks/useItemAnalysis'
 import { Card } from '../../Card/Card'
 import { ItemGrid } from '../ItemGrid/ItemGrid'
 
 interface UsedInProps {
-  item: Item
-  allItems: Array<Item>
+  usedInItems: Array<UsedInInfo>
   onItemSelect?: (id: number) => void
 }
 
-export function UsedIn({ item, allItems, onItemSelect }: UsedInProps) {
-  // Find all items that recycle INTO this item
-  const usedInItems = useMemo(() => {
-    return allItems
-      .filter((otherItem) =>
-        otherItem.recyclesTo.some((recycle) => recycle.id === item.id),
-      )
-      .map((parentItem) => {
-        const recycleInfo = parentItem.recyclesTo.find((r) => r.id === item.id)
-        return {
-          item: parentItem,
-          amount: recycleInfo?.amount ?? 1,
-        }
-      })
-  }, [item.id, allItems])
+export function UsedIn({ usedInItems, onItemSelect }: UsedInProps) {
+  const { id } = useSearch({ from: '/' })
 
   if (usedInItems.length === 0) {
     return null
@@ -36,6 +22,7 @@ export function UsedIn({ item, allItems, onItemSelect }: UsedInProps) {
         items={usedInItems}
         variant="secondary"
         onItemSelect={onItemSelect}
+        highlightedItemId={id}
         ariaLabel={`Used In: ${usedInItems.length} item${usedInItems.length !== 1 ? 's' : ''}`}
       />
     </Card>

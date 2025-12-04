@@ -1,4 +1,5 @@
 import { QuestCompletion } from '../QuestCompletion'
+import { WorkshopCompletion } from '../WorkshopCompletion'
 import styles from './Layout.module.scss'
 
 interface LayoutProps {
@@ -9,6 +10,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className={styles.layout}>
       <QuestCompletion />
+      <WorkshopCompletion />
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <div className={styles.footerLinks}>
@@ -24,6 +26,12 @@ export function Layout({ children }: LayoutProps) {
             </svg>
           </a>
         </div>
+        <p className={styles.dataSource}>
+          Data sourced from{' '}
+          <a href="https://arcraiders.wiki" target="_blank" rel="noopener noreferrer">
+            arcraiders.wiki
+          </a>
+        </p>
         <p className={styles.copyright}>
           © {new Date().getFullYear()} ARC Cheatsheet. All rights reserved.
         </p>

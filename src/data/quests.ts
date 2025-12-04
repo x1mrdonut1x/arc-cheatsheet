@@ -1,4 +1,6 @@
-export const quests = [
+import type { Quest } from './types'
+
+export const quests: Array<Quest> = [
   {
     id: 0,
     name: 'Picking Up The Pieces',
@@ -208,7 +210,7 @@ export const quests = [
     items_needed: [],
     rewards: [
       {
-        id: 'lil_smoke_grenade',
+        id: 251,
         name: "Li'l Smoke Grenade",
         amount: 5,
       },
@@ -367,7 +369,6 @@ export const quests = [
         amount: 2,
       },
       {
-        id: 'trigger_nade_blueprint',
         name: "Trigger 'Nade Blueprint",
         amount: 1,
       },
@@ -506,7 +507,7 @@ export const quests = [
         amount: 3,
       },
       {
-        id: 'lil_smoke_grenade',
+        id: 251,
         name: "Li'l Smoke Grenade",
         amount: 3,
       },

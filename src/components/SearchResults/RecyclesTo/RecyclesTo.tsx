@@ -1,26 +1,22 @@
-import { Recycle } from 'lucide-react'
+import { Coins, Recycle } from 'lucide-react'
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
+import type { RecycledItemInfo } from '../../../hooks/useItemAnalysis'
 import { Card } from '../../Card/Card'
 import { ItemGrid } from '../ItemGrid/ItemGrid'
 import styles from './RecyclesTo.module.scss'
 
 interface RecyclesToProps {
   item: Item
-  allItems: Array<Item>
+  recycledItems: Array<RecycledItemInfo>
   onItemSelect?: (id: number) => void
 }
 
-export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
-  const recycledItems = useMemo(() => {
-    return item.recyclesTo
-      .map((recycle) => {
-        const foundItem = allItems.find((i) => i.id === recycle.id)
-        return foundItem ? { item: foundItem, amount: recycle.amount } : null
-      })
-      .filter((x) => x !== null)
-  }, [item.recyclesTo, allItems])
-
+export function RecyclesTo({
+  item,
+  recycledItems,
+  onItemSelect,
+}: RecyclesToProps) {
   const priceComparison = useMemo(() => {
     if (recycledItems.length === 0) return null
 
@@ -48,7 +44,8 @@ export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
   const footer = priceComparison ? (
     <div className={styles.footer}>
       <span className={styles.footerTotal}>
-        {priceComparison.total.toLocaleString()} ₳{' '}
+        <Coins size={16} />
+        {priceComparison.total.toLocaleString()}{' '}
         <span
           className={
             priceComparison.percentage >= 0
@@ -64,7 +61,12 @@ export function RecyclesTo({ item, allItems, onItemSelect }: RecyclesToProps) {
   ) : null
 
   return (
-    <Card variant="primary" title="Recycles To" icon={<Recycle size={18} />} footer={footer}>
+    <Card
+      variant="primary"
+      title="Recycles To"
+      icon={<Recycle size={18} />}
+      footer={footer}
+    >
       <ItemGrid
         items={recycledItems}
         variant="primary"

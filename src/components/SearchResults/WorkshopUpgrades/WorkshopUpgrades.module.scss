@@ -1,0 +1,46 @@
+.upgrades {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.upgrade {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upgrade:not(:last-child) {
+  padding-bottom: 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workshopName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+
+  &[data-completed] {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+}
+
+.level {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-text-muted) 15%, transparent);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.completedIcon {
+  color: var(--color-workshop);
+}

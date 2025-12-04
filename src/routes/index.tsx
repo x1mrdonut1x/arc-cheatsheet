@@ -10,7 +10,7 @@ import { useGetItem, useSearchItems } from '../hooks/useItems'
 import styles from './index.module.scss'
 
 const searchParamsSchema = z.object({
-  item: z.number().optional(),
+  id: z.number().optional(),
 })
 
 export const Route = createFileRoute('/')({
@@ -19,7 +19,7 @@ export const Route = createFileRoute('/')({
 })
 
 function App() {
-  const { item: selectedItemId } = Route.useSearch()
+  const { id: selectedItemId } = Route.useSearch()
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
   const [isInputFocused, setIsInputFocused] = useState(false)
@@ -39,12 +39,12 @@ function App() {
 
   useLayoutEffect(() => {
     if (searchResults.length === 1) {
-      navigate({ to: '/', search: { item: searchResults[0].id } })
+      navigate({ to: '/', search: { id: searchResults[0].id } })
     }
   }, [navigate, searchResults])
 
   const handleItemSelect = (id: number) => {
-    navigate({ to: '/', search: { item: id } })
+    navigate({ to: '/', search: { id: id } })
   }
 
   const handleSearchChange = (value: string) => {

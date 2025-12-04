@@ -79,3 +79,20 @@
   color: color-mix(in srgb, var(--color-text-muted) 50%, transparent);
   text-align: center;
 }
+
+.dataSource {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text-muted) 50%, transparent);
+  text-align: center;
+
+  a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+  }
+}

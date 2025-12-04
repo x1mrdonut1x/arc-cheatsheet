@@ -16,6 +16,11 @@
   --color-quest-light: #f5d93a;
   --color-quest-dark: #c9a90a;
   
+  /* Workshop color - Cyan theme */
+  --color-workshop: #61feff;
+  --color-workshop-light: #8bffff;
+  --color-workshop-dark: #4dd4d5;
+  
   /* Rarity colors */
   --color-rarity-common: #9ca3af;
   --color-rarity-uncommon: #22c55e;

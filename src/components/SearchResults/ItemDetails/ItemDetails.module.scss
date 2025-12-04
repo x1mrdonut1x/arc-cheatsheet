@@ -132,15 +132,17 @@
 }
 
 .statItem {
+  flex: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  border-right: 1px solid
+    color-mix(in srgb, var(--color-primary) 12%, transparent);
   gap: 6px;
   padding: 0 12px;
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text-primary);
-  border-right: 1px solid
-    color-mix(in srgb, var(--color-primary) 12%, transparent);
 
   &:last-child {
     border-right: none;

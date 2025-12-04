@@ -1,0 +1,1 @@
+export { WorkshopCompletion } from './WorkshopCompletion'

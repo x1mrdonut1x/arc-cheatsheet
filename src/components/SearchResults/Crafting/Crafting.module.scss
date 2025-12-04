@@ -1,0 +1,42 @@
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recipe:not(:last-child) {
+  padding-bottom: 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+}
+
+.workstation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workstationName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.workstationLevel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-text-muted) 15%, transparent);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.output {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}

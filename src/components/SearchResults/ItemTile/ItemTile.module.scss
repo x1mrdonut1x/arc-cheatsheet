@@ -57,9 +57,8 @@
     }
   }
 
-  &[data-highlighted] .imageBackground {
-    box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent);
-    border: 2px solid var(--accent);
+  &[data-highlighted] .imageWrapper {
+    margin: 3px;
   }
 }
 

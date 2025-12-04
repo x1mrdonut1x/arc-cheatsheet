@@ -1,13 +1,17 @@
 import { items as allItems } from '../../data/items'
 import type { Item } from '../../data/types'
+import { useItemAnalysis } from '../../hooks/useItemAnalysis'
 import { AnimatedList } from '../AnimatedList'
 import { Card } from '../Card/Card'
+import { Baseline } from './Baseline/Baseline'
+import { Crafting } from './Crafting/Crafting'
 import { ItemDetails } from './ItemDetails/ItemDetails'
 import { ItemTile } from './ItemTile/ItemTile'
 import { QuestList } from './QuestList/QuestList'
 import { RecyclesTo } from './RecyclesTo/RecyclesTo'
 import styles from './SearchResults.module.scss'
 import { UsedIn } from './UsedIn/UsedIn'
+import { WorkshopUpgrades } from './WorkshopUpgrades/WorkshopUpgrades'
 
 interface SearchResultsProps {
   items: Array<Item>
@@ -20,6 +24,9 @@ export function SearchResults({
   searchQuery,
   onItemSelect,
 }: SearchResultsProps) {
+  const singleItem = items.length === 1 ? items[0] : undefined
+  const analysis = useItemAnalysis(singleItem)
+
   if (!searchQuery.trim()) {
     return null
   }
@@ -78,21 +85,40 @@ export function SearchResults({
       </AnimatedList>
 
       {/* Relationship sections - outside the item card */}
-      {isSingleItem && items[0] && (
+      {isSingleItem && items[0] && analysis && (
         <div className={styles.relationshipsContainer}>
-          <RecyclesTo
+          <Baseline
+            recommendation={analysis.baseline.recommendation}
+            totalNeeded={analysis.baseline.totalNeeded}
+            questsNeeded={analysis.baseline.questsNeeded}
+            upgradesNeeded={analysis.baseline.upgradesNeeded}
+            allQuestsCompleted={analysis.baseline.allQuestsCompleted}
+            allUpgradesCompleted={analysis.baseline.allUpgradesCompleted}
+            hasQuests={analysis.relatedQuests.length > 0}
+            hasUpgrades={analysis.upgrades.length > 0}
+          />
+          <Crafting
             item={items[0]}
             allItems={allItems}
             onItemSelect={onItemSelect}
           />
-          <UsedIn
+          <RecyclesTo
             item={items[0]}
-            allItems={allItems}
+            recycledItems={analysis.recycledItems}
+            onItemSelect={onItemSelect}
+          />
+          <UsedIn
+            usedInItems={analysis.usedInItems}
+            onItemSelect={onItemSelect}
+          />
+          <WorkshopUpgrades
+            item={items[0]}
+            upgrades={analysis.upgrades}
             onItemSelect={onItemSelect}
           />
           <QuestList
             item={items[0]}
-            allItems={allItems}
+            relatedQuests={analysis.relatedQuests}
             onItemSelect={onItemSelect}
           />
         </div>
