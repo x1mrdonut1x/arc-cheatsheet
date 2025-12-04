@@ -1,5 +1,5 @@
 import { useSearch } from '@tanstack/react-router'
-import { Hammer } from 'lucide-react'
+import { Merge } from 'lucide-react'
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
 import { Card } from '../../Card/Card'
@@ -96,7 +96,7 @@ export function Crafting({ item, allItems, onItemSelect }: CraftingProps) {
   }
 
   return (
-    <Card variant="primary" title="Crafting" icon={<Hammer size={18} />}>
+    <Card variant="primary" title="Crafted from" icon={<Merge size={18} />}>
       <div className={styles.recipes}>
         {recipes.map((recipe, index) => (
           <div key={index} className={styles.recipe}>

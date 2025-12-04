@@ -1,5 +1,5 @@
 import { useSearch } from '@tanstack/react-router'
-import { Wrench } from 'lucide-react'
+import { Hammer } from 'lucide-react'
 import type { UsedInInfo } from '../../../hooks/useItemAnalysis'
 import { Card } from '../../Card/Card'
 import { ItemGrid } from '../ItemGrid/ItemGrid'
@@ -17,7 +17,7 @@ export function UsedIn({ usedInItems, onItemSelect }: UsedInProps) {
   }
 
   return (
-    <Card variant="secondary" title="Used In" icon={<Wrench size={18} />}>
+    <Card variant="secondary" title="Used In" icon={<Hammer size={18} />}>
       <ItemGrid
         items={usedInItems}
         variant="secondary"

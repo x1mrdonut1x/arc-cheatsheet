@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { useCallback, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { traders } from '../../data/traders'
 import { useCompletedQuests } from '../../hooks/useCompletedQuests'
 import styles from './QuestCompletion.module.scss'
@@ -16,7 +17,7 @@ export function QuestCompletion() {
   }, [])
 
   return (
-    <div className={styles.wrapper}>
+    <>
       <button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
@@ -36,7 +37,7 @@ export function QuestCompletion() {
         <span className={styles.buttonText}>Quest Completion</span>
       </button>
 
-      {isOpen && (
+      {isOpen && createPortal(
         <>
           <div className={styles.backdrop} onClick={handleClose} />
           <div
@@ -73,8 +74,9 @@ export function QuestCompletion() {
               onToggleQuest={toggleQuest}
             />
           </div>
-        </>
+        </>,
+        document.body
       )}
-    </div>
+    </>
   )
 }

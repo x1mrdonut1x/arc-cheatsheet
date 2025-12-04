@@ -1,13 +1,10 @@
 @use '../../styles/mixins' as *;
 
-.wrapper {
+.toggleButton {
   position: fixed;
   top: 70px;
   right: 20px;
-  z-index: 1000;
-}
-
-.toggleButton {
+  z-index: 100;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -55,7 +52,7 @@
   bottom: 0;
   background: color-mix(in srgb, var(--color-bg-dark) 70%, transparent);
   backdrop-filter: blur(4px);
-  z-index: 999;
+  z-index: 1000;
   animation: fadeIn 0.2s ease;
 }
 

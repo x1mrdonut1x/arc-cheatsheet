@@ -22,7 +22,11 @@
   .name {
     color: var(--color-text-muted);
     text-decoration: line-through;
-    text-decoration-color: color-mix(in srgb, var(--color-quest) 50%, transparent);
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--color-quest) 50%,
+      transparent
+    );
   }
 
   .description {
@@ -63,7 +67,11 @@
 }
 
 .checkboxChecked {
-  background: linear-gradient(145deg, var(--color-quest) 0%, var(--color-quest-dark) 100%);
+  background: linear-gradient(
+    145deg,
+    var(--color-quest) 0%,
+    var(--color-quest-dark) 100%
+  );
   border-color: var(--color-quest-light);
   box-shadow: 0 0 20px color-mix(in srgb, var(--color-quest) 40%, transparent);
 }
@@ -96,7 +104,21 @@
 }
 
 .completedBadge {
-  @include badge(var(--color-quest));
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, #{var(--color-quest)} 30%, transparent) 0%,
+    color-mix(in srgb, #{var(--color-quest)} 20%, transparent) 100%
+  );
+  border: 1px solid color-mix(in srgb, #{var(--color-quest)} 40%, transparent);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-quest);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .description {

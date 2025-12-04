@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { Wrench } from 'lucide-react'
 import { useCallback, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { workshops } from '../../data/workshops'
 import { useCompletedWorkshops } from '../../hooks/useCompletedWorkshops'
 import styles from './WorkshopCompletion.module.scss'
@@ -14,7 +15,7 @@ export function WorkshopCompletion() {
   }, [])
 
   return (
-    <div className={styles.wrapper}>
+    <>
       <button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
@@ -25,7 +26,7 @@ export function WorkshopCompletion() {
         <span className={styles.buttonText}>Workshop Upgrades</span>
       </button>
 
-      {isOpen && (
+      {isOpen && createPortal(
         <>
           <div className={styles.backdrop} onClick={handleClose} />
           <div
@@ -77,8 +78,9 @@ export function WorkshopCompletion() {
               ))}
             </ul>
           </div>
-        </>
+        </>,
+        document.body
       )}
-    </div>
+    </>
   )
 }
