@@ -9,10 +9,6 @@
 }
 
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -26,25 +22,22 @@
   flex-wrap: wrap;
 }
 
-.categoryTag {
+.categoryTag,
+.rarityTag {
+  display: inline-flex;
+  align-items: center;
   padding: 6px 12px;
-  background: rgba(100, 116, 139, 0.3);
-  border: 1px solid rgba(100, 116, 139, 0.5);
-  border-radius: 6px;
-  font-size: 12px;
+  border-radius: 20px;
+  font-size: 11px;
   font-weight: 600;
-  color: #cbd5e1;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.rarityTag {
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.categoryTag {
+  background: rgba(100, 116, 139, 0.3);
+  border: 1px solid rgba(100, 116, 139, 0.5);
+  color: #cbd5e1;
 }
 
 .rarityCommon {
@@ -93,36 +86,40 @@
 }
 
 .detailStats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  margin: 0;
-}
-
-.statItem {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 12px;
-  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  margin: 0;
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
   border-radius: 8px;
   border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+  overflow: hidden;
 }
 
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+
 .statLabel {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0;
 }
 
 .statValue {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   margin: 0;
 }

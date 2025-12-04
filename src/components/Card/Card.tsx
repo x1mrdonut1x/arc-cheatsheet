@@ -1,9 +1,9 @@
-import { useId } from 'react'
 import classNames from 'classnames'
-import styles from './Card.module.scss'
 import type { ReactNode } from 'react'
+import { useId } from 'react'
+import styles from './Card.module.scss'
 
-export type CardVariant = 'primary' | 'secondary'
+type CardVariant = 'primary' | 'secondary'
 
 interface CardProps {
   children: ReactNode
@@ -35,7 +35,7 @@ export function Card({
           [styles.cardSecondary]: variant === 'secondary',
           [styles.cardAnimated]: animated,
         },
-        className
+        className,
       )}
     >
       {title ? (

@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { items as allItems } from '../../data/data'
+import { items as allItems } from '../../data/items'
 import type { Item } from '../../data/types'
 import { AnimatedList } from '../AnimatedList'
 import { Card } from '../Card/Card'

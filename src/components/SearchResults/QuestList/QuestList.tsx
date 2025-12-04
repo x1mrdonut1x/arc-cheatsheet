@@ -1,6 +1,8 @@
 import { useMemo } from 'react'
 import { quests } from '../../../data/quests'
+import { traders } from '../../../data/traders'
 import type { Item } from '../../../data/types'
+import { useCompletedQuests } from '../../../hooks/useCompletedQuests'
 import { AnimatedList } from '../../AnimatedList'
 import { Card } from '../../Card/Card'
 import type { ItemWithAmount } from '../ItemGrid/ItemGrid'
@@ -14,6 +16,8 @@ interface QuestListProps {
 }
 
 export function QuestList({ item, allItems, onItemSelect }: QuestListProps) {
+  const { isCompleted } = useCompletedQuests()
+
   const relatedQuests = useMemo(() => {
     return quests
       .filter((quest) =>
@@ -29,9 +33,9 @@ export function QuestList({ item, allItems, onItemSelect }: QuestListProps) {
           })
           .filter((x): x is ItemWithAmount => x !== null)
 
-        return { ...quest, questItems }
+        return { ...quest, questItems, isCompleted: isCompleted(quest.id) }
       })
-  }, [item.id, allItems])
+  }, [item.id, allItems, isCompleted])
 
   if (relatedQuests.length === 0) {
     return null
@@ -48,7 +52,12 @@ export function QuestList({ item, allItems, onItemSelect }: QuestListProps) {
           <li key={quest.id} className={styles.questItem}>
             <div className={styles.questHeader}>
               <span className={styles.questName}>{quest.name}</span>
-              <span className={styles.questTrader}>{quest.trader}</span>
+              {quest.isCompleted && (
+                <span className={styles.completedBadge}>✓ Completed</span>
+              )}
+              <span className={styles.questTrader}>
+                {traders.find((trader) => trader.id === quest.trader)?.name}
+              </span>
             </div>
             <div className={styles.itemsContainer}>
               <ItemGrid

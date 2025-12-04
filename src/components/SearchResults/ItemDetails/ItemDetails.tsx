@@ -39,11 +39,11 @@ export function ItemDetails({ item }: ItemDetailsProps) {
         <p className={styles.detailDescription}>{item.description}</p>
       )}
       <dl className={styles.detailStats}>
-        <div className={styles.statItem}>
+        <div className={styles.statRow}>
           <dt className={styles.statLabel}>Stack Size</dt>
           <dd className={styles.statValue}>{item.maxStackSize}</dd>
         </div>
-        <div className={styles.statItem}>
+        <div className={styles.statRow}>
           <dt className={styles.statLabel}>Sell Price</dt>
           <dd className={styles.statValue}>
             <span aria-label={`${item.sellPrice.toLocaleString()} credits`}>

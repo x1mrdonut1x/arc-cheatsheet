@@ -7,10 +7,10 @@
  * @param totalDuration - Total time for all animations to complete (default: 0.3s)
  * @returns The delay in seconds for the item at the given index
  */
-export function getStaggerDelay(
+function getStaggerDelay(
   index: number,
   itemCount: number,
-  totalDuration = 0.3
+  totalDuration = 0.3,
 ): number {
   if (itemCount <= 1) return 0
   return (index * totalDuration) / itemCount
@@ -27,7 +27,7 @@ export function getStaggerDelay(
 export function getStaggerStyle(
   index: number,
   itemCount: number,
-  totalDuration = 0.3
+  totalDuration = 0.3,
 ): React.CSSProperties {
   return {
     animationDelay: `${getStaggerDelay(index, itemCount, totalDuration)}s`,

@@ -1,3 +1,4 @@
+import { QuestCompletion } from '../QuestCompletion'
 import styles from './Layout.module.scss'
 
 interface LayoutProps {
@@ -7,6 +8,7 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <div className={styles.layout}>
+      <QuestCompletion />
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <div className={styles.footerLinks}>

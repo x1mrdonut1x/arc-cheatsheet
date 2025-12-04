@@ -1,3 +1,5 @@
+@use '../../../styles/mixins' as *;
+
 .item {
   display: flex;
   flex-direction: column;
@@ -23,15 +25,12 @@
   &:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
-    border-radius: 8px;
   }
 
-  .imageWrapper {
-    &:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 30px color-mix(in srgb, var(--color-primary) 40%, transparent),
-        0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
-    }
+  .imageWrapper:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px color-mix(in srgb, var(--color-primary) 40%, transparent),
+      0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
   }
 }
 
@@ -39,15 +38,12 @@
   &:focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 4px;
-    border-radius: 8px;
   }
 
-  .imageWrapper {
-    &:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 30px color-mix(in srgb, var(--color-secondary) 40%, transparent),
-        0 0 20px color-mix(in srgb, var(--color-secondary) 30%, transparent);
-    }
+  .imageWrapper:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px color-mix(in srgb, var(--color-secondary) 40%, transparent),
+      0 0 20px color-mix(in srgb, var(--color-secondary) 30%, transparent);
   }
 }
 
@@ -65,18 +61,6 @@
   transition: all 0.3s ease;
 }
 
-.itemPrimary .imageWrapper {
-  &:hover {
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
-  }
-}
-
-.itemSecondary .imageWrapper {
-  &:hover {
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 30%, transparent);
-  }
-}
-
 .image {
   width: 64px;
   height: 64px;
@@ -91,26 +75,18 @@
   color: white;
   font-size: 12px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: 12px;
   border: 2px solid var(--color-bg-dark);
 }
 
 .amountBadgePrimary {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-primary-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   box-shadow: 0 2px 8px color-mix(in srgb, var(--color-primary) 50%, transparent);
 }
 
 .amountBadgeSecondary {
-  background: linear-gradient(
-    135deg,
-    var(--color-secondary) 0%,
-    var(--color-secondary-dark) 100%
-  );
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
   box-shadow: 0 2px 8px color-mix(in srgb, var(--color-secondary) 50%, transparent);
 }
 
@@ -129,8 +105,7 @@
   -webkit-box-orient: vertical;
 }
 
-// Respect reduced motion preferences
-@media (prefers-reduced-motion: reduce) {
+@include reduced-motion {
   .imageWrapper {
     transition: none;
   }

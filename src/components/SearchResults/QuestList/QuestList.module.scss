@@ -1,4 +1,5 @@
-// Quest List Section
+@use '../../../styles/mixins' as *;
+
 .questList {
   display: flex;
   flex-direction: column;
@@ -29,6 +30,11 @@
   font-size: 14px;
   font-weight: 700;
   color: var(--color-text-primary);
+}
+
+.completedBadge {
+  @include badge(var(--color-primary));
+  justify-content: center;
 }
 
 .questTrader {

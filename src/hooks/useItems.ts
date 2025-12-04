@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { items } from '../data/data'
+import { items } from '../data/items'
 import type { Item } from '../data/types'
 
 export function useGetItem(id: number | undefined) {

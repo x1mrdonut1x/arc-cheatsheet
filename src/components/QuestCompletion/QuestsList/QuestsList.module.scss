@@ -1,0 +1,38 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.traderName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-quest-light);
+  margin: 0;
+  padding: 16px 16px 0;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+  @include scrollbar(var(--color-quest));
+}
+
+.empty {
+  padding: 32px 16px;
+  text-align: center;
+
+  p {
+    color: var(--color-text-muted);
+    margin: 0;
+    font-size: 14px;
+  }
+}
