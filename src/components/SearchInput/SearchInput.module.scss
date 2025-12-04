@@ -2,6 +2,14 @@
   width: 100%;
   max-width: 600px;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inputWrapper {
+  position: relative;
+  flex: 1;
 }
 
 .input {
@@ -38,4 +46,79 @@
   transform: translateY(-50%);
   color: color-mix(in srgb, var(--color-primary) 60%, transparent);
   pointer-events: none;
+}
+
+.iconButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-bg-medium) 80%, transparent);
+  color: color-mix(in srgb, var(--color-primary) 60%, transparent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 80%, transparent);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  &Active {
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+}
+
+.filterWrapper {
+  position: relative;
+}
+
+.filterMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  min-width: 150px;
+  padding: 8px;
+  border: 2px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-bg-medium) 95%, transparent);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.filterOption {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  &Active {
+    background: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    color: var(--color-primary);
+  }
 }

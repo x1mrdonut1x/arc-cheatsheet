@@ -27,10 +27,6 @@ export function SearchResults({
   const singleItem = items.length === 1 ? items[0] : undefined
   const analysis = useItemAnalysis(singleItem)
 
-  if (!searchQuery.trim()) {
-    return null
-  }
-
   if (items.length === 0) {
     return (
       <div className={styles.container} role="status" aria-live="polite">

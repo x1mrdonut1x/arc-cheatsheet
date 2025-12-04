@@ -3,6 +3,39 @@ import type { Workshop } from './types'
 export const workshops: Array<Workshop> = [
   {
     id: 0,
+    name: 'Scrappy',
+    levels: [
+      {
+        value: 2,
+        items: [{ id: 56, amount: 1 }],
+      },
+      {
+        value: 3,
+        items: [
+          { id: 93, amount: 3 },
+          { id: 9, amount: 3 },
+        ],
+      },
+      {
+        value: 4,
+        items: [
+          { id: 126, amount: 6 },
+          { id: 114, amount: 6 },
+          { id: 34, amount: 1 },
+        ],
+      },
+      {
+        value: 5,
+        items: [
+          { id: 109, amount: 12 },
+          { id: 9, amount: 12 },
+          { id: 186, amount: 3 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 1,
     name: 'Workbench',
     levels: [
       {
@@ -12,7 +45,7 @@ export const workshops: Array<Workshop> = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     name: 'Gunsmith',
     levels: [
       {
@@ -65,7 +98,7 @@ export const workshops: Array<Workshop> = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: 'Gear Bench',
     levels: [
       {
@@ -118,7 +151,7 @@ export const workshops: Array<Workshop> = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: 'Medical Lab',
     levels: [
       {
@@ -171,7 +204,7 @@ export const workshops: Array<Workshop> = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: 'Explosives Station',
     levels: [
       {
@@ -224,7 +257,7 @@ export const workshops: Array<Workshop> = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: 'Utility Station',
     levels: [
       {
@@ -277,7 +310,7 @@ export const workshops: Array<Workshop> = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     name: 'Refiner',
     levels: [
       {

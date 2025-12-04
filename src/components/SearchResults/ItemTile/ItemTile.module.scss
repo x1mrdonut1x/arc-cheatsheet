@@ -5,7 +5,9 @@
   --accent-dark: var(--color-primary-dark);
   --rarity: var(--color-rarity-common);
   --radius: 4px;
+  --item-size: 64px;
 
+  width: var(--item-size);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,8 +90,8 @@
 
 .image {
   padding: 8px;
-  width: 64px;
-  height: 64px;
+  width: var(--item-size);
+  height: var(--item-size);
   object-fit: contain;
 }
 

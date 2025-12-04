@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import classNames from 'classnames'
 import { useLayoutEffect, useState } from 'react'
 import { z } from 'zod'
+import type { SortOption } from '../components/SearchInput/SearchInput'
 import { SearchInput } from '../components/SearchInput/SearchInput'
 import { SearchResults } from '../components/SearchResults/SearchResults'
 import { useDebounce } from '../hooks/useDebounce'
@@ -21,11 +22,18 @@ export const Route = createFileRoute('/')({
 function App() {
   const { id: selectedItemId } = Route.useSearch()
   const navigate = useNavigate()
+
   const [searchQuery, setSearchQuery] = useState('')
   const [isInputFocused, setIsInputFocused] = useState(false)
+  const [sortBy, setSortBy] = useState<SortOption>('name')
+  const [showAllItems, setShowAllItems] = useState(false)
   const debouncedQuery = useDebounce(searchQuery, 300)
 
-  const { data: searchResults = [] } = useSearchItems(debouncedQuery)
+  const { data: searchResults = [] } = useSearchItems(
+    debouncedQuery,
+    sortBy,
+    showAllItems,
+  )
   const { data: selectedItem } = useGetItem(selectedItemId)
 
   // Derive display items from state
@@ -35,7 +43,8 @@ function App() {
   const displayQuery = isInputFocused
     ? searchQuery
     : (selectedItem?.name ?? searchQuery)
-  const hasSearchQuery = displayQuery.trim().length > 0
+
+  const hasSearchQuery = displayQuery.trim().length > 0 || showAllItems
 
   useLayoutEffect(() => {
     if (searchResults.length === 1) {
@@ -44,15 +53,23 @@ function App() {
   }, [navigate, searchResults])
 
   const handleItemSelect = (id: number) => {
+    setShowAllItems(false)
     navigate({ to: '/', search: { id: id } })
   }
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value)
+    setShowAllItems(false)
 
     if (selectedItemId) {
       navigate({ to: '/', search: {} })
     }
+  }
+
+  const handleShowToggle = () => {
+    setSearchQuery('')
+    setShowAllItems((prev) => !prev)
+    navigate({ to: '/', search: {} })
   }
 
   return (
@@ -84,6 +101,10 @@ function App() {
           onFocus={() => setIsInputFocused(true)}
           onBlur={() => setIsInputFocused(false)}
           placeholder="Search for items..."
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+          showAll={showAllItems}
+          onToggleShowAll={handleShowToggle}
         />
 
         <div

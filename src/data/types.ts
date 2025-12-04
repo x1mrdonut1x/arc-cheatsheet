@@ -1,6 +1,7 @@
 type Category =
   | 'Misc'
   | 'Advanced Material'
+  | 'Basic Material'
   | 'Nature'
   | 'Recyclable'
   | 'Refined Material'
@@ -8,6 +9,17 @@ type Category =
   | 'Topside Material'
   | 'Key'
   | 'Quick Use'
+  | 'Modification'
+  | 'Consumable'
+  | 'Throwable'
+  | 'Gadget'
+  | 'Shield'
+  | 'Ammunition'
+  | 'Material'
+  | 'Augment'
+  | 'Medical'
+  | 'Quest Item'
+  | 'Cosmetic'
 
 type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary'
 
