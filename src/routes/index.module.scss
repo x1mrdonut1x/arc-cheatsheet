@@ -15,10 +15,19 @@
   gap: 40px;
   width: 100%;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 768px) {
+    margin-top: 60px;
+    gap: 10px;
+  }
 }
 
 .searchWrapperCentered {
   transform: translateY(30vh);
+
+  @media (max-width: 768px) {
+    transform: translateY(20vh);
+  }
 }
 
 .searchWrapperActive {
@@ -30,12 +39,25 @@
   font-weight: 800;
   text-align: center;
   margin: 0;
-  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 50%,
+    var(--color-primary-dark) 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 1;
   transition: all 0.4s ease;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 }
 
 .titleHidden {
@@ -52,6 +74,11 @@
   text-align: center;
   margin: -20px 0 0 0;
   transition: all 0.4s ease;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin: -5px 0 0 0;
+  }
 }
 
 .subtitleHidden {

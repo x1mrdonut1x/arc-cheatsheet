@@ -5,6 +5,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @media (max-width: 768px) {
+    padding: 0 8px;
+  }
 }
 
 .inputWrapper {
@@ -24,14 +28,20 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 
+  @media (max-width: 768px) {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
   &::placeholder {
     color: color-mix(in srgb, var(--color-text-muted) 60%, transparent);
   }
 
   &:focus {
     border-color: color-mix(in srgb, var(--color-primary) 80%, transparent);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent),
-                0 0 40px color-mix(in srgb, var(--color-primary) 10%, transparent);
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-primary) 10%, transparent);
   }
 
   &:hover:not(:focus) {
@@ -68,16 +78,23 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
   &:hover {
     border-color: color-mix(in srgb, var(--color-primary) 80%, transparent);
     color: var(--color-primary);
-    box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 20%, transparent);
+    box-shadow: 0 0 15px
+      color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 
   &Active {
     border-color: var(--color-primary);
     background: color-mix(in srgb, var(--color-primary) 20%, transparent);
     color: var(--color-primary);
-    box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 30%, transparent);
+    box-shadow: 0 0 15px
+      color-mix(in srgb, var(--color-primary) 30%, transparent);
   }
 }

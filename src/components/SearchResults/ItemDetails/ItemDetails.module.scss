@@ -7,6 +7,10 @@
   animation-delay: 0.15s;
   opacity: 0;
   transform: translateY(-20px);
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 }
 
 @keyframes slideDown {
@@ -78,6 +82,10 @@
   color: var(--color-text-primary);
   margin: 0 0 12px 0;
   line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .detailDescription {
@@ -129,6 +137,11 @@
   border-radius: var(--radius-sm);
   padding: 10px 16px;
   margin-top: 8px;
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }
 
 .statItem {
@@ -143,6 +156,12 @@
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text-primary);
+
+  @media (max-width: 480px) {
+    flex: 0 0 auto;
+    border-right: none;
+    padding: 4px 8px;
+  }
 
   &:last-child {
     border-right: none;

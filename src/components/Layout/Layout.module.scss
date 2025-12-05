@@ -101,6 +101,25 @@
   }
 }
 
+.sidebar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  gap: 12px;
+
+  // Mobile: horizontal
+  @media (max-width: 768px) {
+    flex-direction: row;
+  }
+
+  // Desktop: vertical
+  @media (min-width: 769px) {
+    flex-direction: column;
+  }
+}
+
 .backButton {
   position: fixed;
   top: 20px;

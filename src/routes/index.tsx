@@ -88,7 +88,7 @@ function App() {
   }
 
   return (
-    <div className={styles.container}>
+    <>
       <div
         className={classNames(styles.searchWrapper, {
           [styles.searchWrapperActive]: hasSearchQuery,
@@ -132,6 +132,6 @@ function App() {
           />
         </div>
       </div>
-    </div>
+    </>
   )
 }
