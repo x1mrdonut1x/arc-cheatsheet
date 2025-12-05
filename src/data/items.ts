@@ -3795,57 +3795,6 @@ export const items: Array<Item> = [
       'Oil is an uncommon item used for explosives that can be recycled into crafting materials.',
     maxStackSize: 15,
     weight: 0.25,
-    crafting: [
-      {
-        amount: 1,
-        workstation: 'Explosives Station',
-        workstationLevel: 3,
-        items: [
-          {
-            id: '2x Oil',
-            amount: 5,
-          },
-          {
-            id: '1x Explosive Compound',
-            amount: 5,
-          },
-        ],
-      },
-      {
-        amount: 1,
-        workstation: 'Refiner',
-        workstationLevel: 2,
-        items: [
-          {
-            id: '2x Crude Explosives',
-            amount: 5,
-          },
-          {
-            id: '2x Oil ',
-            amount: 5,
-          },
-        ],
-      },
-      {
-        amount: 1,
-        workstation: 'Gunsmith ',
-        workstationLevel: 3,
-        items: [
-          {
-            id: '2x Advanced Mechanical Components',
-            amount: 5,
-          },
-          {
-            id: '3x Medium Gun Parts',
-            amount: 5,
-          },
-          {
-            id: '5x Oil ',
-            amount: 5,
-          },
-        ],
-      },
-    ],
     sources: [
       {
         type: 'Scavenging',
