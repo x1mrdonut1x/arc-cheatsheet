@@ -36,7 +36,7 @@ export interface ProjectStageInfo {
   amountNeeded: number
 }
 
-export interface UsedInInfo {
+export interface RecycledFromInfo {
   item: Item
   amount: number
 }
@@ -49,7 +49,7 @@ export interface RecycledItemInfo {
 export interface ItemAnalysis {
   item: Item
   allItems: Array<Item>
-  usedInItems: Array<UsedInInfo>
+  recycledFromItems: Array<RecycledFromInfo>
   recycledItems: Array<RecycledItemInfo>
   upgrades: Array<UpgradeInfo>
   projectStages: Array<ProjectStageInfo>
@@ -90,7 +90,7 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
     if (!item) return null
 
     // Find items that recycle INTO this item
-    const usedInItems: Array<UsedInInfo> = allItems
+    const recycledFromItems: Array<RecycledFromInfo> = allItems
       .filter((otherItem) =>
         otherItem.recyclesTo.some((recycle) => recycle.id === item.id),
       )
@@ -245,7 +245,7 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
     return {
       item,
       allItems,
-      usedInItems,
+      recycledFromItems,
       recycledItems,
       upgrades,
       projectStages,

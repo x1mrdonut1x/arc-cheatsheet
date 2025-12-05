@@ -9,9 +9,9 @@ import { Crafting } from './Crafting/Crafting'
 import { ItemDetails } from './ItemDetails/ItemDetails'
 import { Project } from './Project/Project'
 import { QuestList } from './QuestList/QuestList'
+import { RecycledFrom } from './RecycledFrom/RecycledFrom'
 import { RecyclesTo } from './RecyclesTo/RecyclesTo'
 import styles from './SearchResults.module.scss'
-import { UsedIn } from './UsedIn/UsedIn'
 import { WorkshopUpgrades } from './WorkshopUpgrades/WorkshopUpgrades'
 
 interface SearchResultsProps {
@@ -121,8 +121,8 @@ export function SearchResults({
             stages={analysis.projectStages}
             onItemSelect={onItemSelect}
           />
-          <UsedIn
-            usedInItems={analysis.usedInItems}
+          <RecycledFrom
+            recycledFromItems={analysis.recycledFromItems}
             onItemSelect={onItemSelect}
           />
         </div>
