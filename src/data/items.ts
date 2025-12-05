@@ -3644,8 +3644,22 @@ export const items: Array<Item> = [
     category: 'Recyclable',
     sellPrice: 2000,
     rarity: 'Rare',
-    recyclesTo: [],
-    salvagesTo: [],
+    recyclesTo: [
+      {
+        id: 113,
+        amount: 2,
+      },
+      {
+        id: 100,
+        amount: 2,
+      },
+    ],
+    salvagesTo: [
+      {
+        id: 113,
+        amount: 3,
+      },
+    ],
     imageUrl:
       'https://arcraiders.wiki/w/images/thumb/0/0f/Motor.png/348px-Motor.png.webp',
     description:
@@ -12316,8 +12330,22 @@ export const items: Array<Item> = [
     category: 'Modification',
     sellPrice: 2000,
     rarity: 'Uncommon',
-    recyclesTo: [],
-    salvagesTo: [],
+    recyclesTo: [
+      {
+        id: 100,
+        amount: 1,
+      },
+      {
+        id: 192,
+        amount: 1,
+      },
+    ],
+    salvagesTo: [
+      {
+        id: 100,
+        amount: 1,
+      },
+    ],
     imageUrl:
       'https://arcraiders.wiki/w/images/thumb/f/f7/Silencer_I.png/348px-Silencer_I.png.webp',
     weight: 0.25,
@@ -12336,12 +12364,12 @@ export const items: Array<Item> = [
         workstationLevel: 2,
         items: [
           {
-            name: 'x2 Mechanical Components',
-            amount: 1,
+            id: 100,
+            amount: 2,
           },
           {
-            name: 'x4 Wires',
-            amount: 1,
+            id: 192,
+            amount: 4,
           },
         ],
       },
