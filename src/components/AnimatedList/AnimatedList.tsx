@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import type { HTMLAttributes, ReactNode } from 'react'
 import { Children } from 'react'
-import { getStaggerStyle } from '../../utils/animation'
 import styles from './AnimatedList.module.scss'
 
 interface AnimatedListProps extends HTMLAttributes<HTMLElement> {
@@ -26,15 +25,19 @@ export function AnimatedList({
 
   return (
     <Component className={classNames(styles.list, className)} {...rest}>
-      {childArray.map((child, index) => (
-        <div
-          key={keys[index]}
-          className={styles.item}
-          style={getStaggerStyle(index, itemCount, totalDuration)}
-        >
-          {child}
-        </div>
-      ))}
+      {childArray.map((child, index) => {
+        const delay = itemCount <= 1 ? 0 : (index * totalDuration) / itemCount
+
+        return (
+          <div
+            key={keys[index]}
+            className={styles.item}
+            style={{ animationDelay: `${delay}s` }}
+          >
+            {child}
+          </div>
+        )
+      })}
     </Component>
   )
 }

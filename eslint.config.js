@@ -4,7 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 export default [
   {
-    ignores: ['*.config.js', '*.config.ts'],
+    ignores: ['**/*', '!src/**'],
   },
   ...tanstackConfig,
   {

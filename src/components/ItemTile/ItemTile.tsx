@@ -1,4 +1,4 @@
-import type { Item } from '../../../data/types'
+import type { Item } from '../../data/types'
 import styles from './ItemTile.module.scss'
 
 export type ItemTileVariant = 'primary' | 'secondary'
