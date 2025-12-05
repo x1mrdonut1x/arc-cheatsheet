@@ -80,7 +80,6 @@ export function SearchResults({
         ))}
       </AnimatedList>
 
-      {/* Relationship sections - outside the item card */}
       {isSingleItem && items[0] && analysis && (
         <div className={styles.relationshipsContainer}>
           <Baseline
@@ -103,8 +102,9 @@ export function SearchResults({
             recycledItems={analysis.recycledItems}
             onItemSelect={onItemSelect}
           />
-          <UsedIn
-            usedInItems={analysis.usedInItems}
+          <QuestList
+            item={items[0]}
+            relatedQuests={analysis.relatedQuests}
             onItemSelect={onItemSelect}
           />
           <WorkshopUpgrades
@@ -112,9 +112,8 @@ export function SearchResults({
             upgrades={analysis.upgrades}
             onItemSelect={onItemSelect}
           />
-          <QuestList
-            item={items[0]}
-            relatedQuests={analysis.relatedQuests}
+          <UsedIn
+            usedInItems={analysis.usedInItems}
             onItemSelect={onItemSelect}
           />
         </div>

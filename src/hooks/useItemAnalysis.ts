@@ -175,13 +175,15 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
     let recommendation: 'keep' | 'sell' | 'recycle'
     if (!allQuestsCompleted || !allUpgradesCompleted) {
       recommendation = 'keep'
+    } else if (recycledItems.length === 0) {
+      recommendation = 'sell'
     } else if (item.sellPrice > 0) {
       // Compare sell value vs recycle value
       const recycleValue = recycledItems.reduce((sum, r) => {
         return sum + r.item.sellPrice * r.amount
       }, 0)
 
-      recommendation = recycleValue > item.sellPrice ? 'sell' : 'recycle'
+      recommendation = recycleValue * 0.7 > item.sellPrice ? 'sell' : 'recycle'
     } else {
       recommendation = recycledItems.length > 0 ? 'recycle' : 'sell'
     }

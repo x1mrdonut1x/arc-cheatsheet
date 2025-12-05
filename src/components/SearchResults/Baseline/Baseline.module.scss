@@ -44,7 +44,7 @@
   justify-content: center;
   gap: 10px;
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   font-size: 16px;
   font-weight: 600;
 }
@@ -103,7 +103,7 @@
   align-items: center;
   padding: 8px 12px;
   background: color-mix(in srgb, var(--color-text-muted) 10%, transparent);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 13px;
 }
 
@@ -124,7 +124,7 @@
   font-size: 12px;
   background: color-mix(in srgb, var(--color-text-muted) 15%, transparent);
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   margin-left: 6px;
 }
 

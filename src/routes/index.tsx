@@ -2,16 +2,16 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import classNames from 'classnames'
 import { useLayoutEffect, useState } from 'react'
 import { z } from 'zod'
-import type { SortOption } from '../components/SearchInput/SearchInput'
 import { SearchInput } from '../components/SearchInput/SearchInput'
 import { SearchResults } from '../components/SearchResults/SearchResults'
 import { useDebounce } from '../hooks/useDebounce'
 import { useGetItem, useSearchItems } from '../hooks/useItems'
-
 import styles from './index.module.scss'
 
 const searchParamsSchema = z.object({
   id: z.number().optional(),
+  sortBy: z.enum(['name', 'price', 'rarity', 'category']).optional(),
+  sortDirection: z.enum(['asc', 'desc']).optional(),
 })
 
 export const Route = createFileRoute('/')({
@@ -20,18 +20,18 @@ export const Route = createFileRoute('/')({
 })
 
 function App() {
-  const { id: selectedItemId } = Route.useSearch()
-  const navigate = useNavigate()
+  const { id: selectedItemId, sortBy, sortDirection } = Route.useSearch()
+  const navigate = useNavigate({ from: '/' })
 
   const [searchQuery, setSearchQuery] = useState('')
   const [isInputFocused, setIsInputFocused] = useState(false)
-  const [sortBy, setSortBy] = useState<SortOption>('name')
   const [showAllItems, setShowAllItems] = useState(false)
   const debouncedQuery = useDebounce(searchQuery, 300)
 
   const { data: searchResults = [] } = useSearchItems(
     debouncedQuery,
-    sortBy,
+    sortBy ?? null,
+    sortDirection ?? null,
     showAllItems,
   )
   const { data: selectedItem } = useGetItem(selectedItemId)
@@ -48,13 +48,22 @@ function App() {
 
   useLayoutEffect(() => {
     if (searchResults.length === 1) {
-      navigate({ to: '/', search: { id: searchResults[0].id } })
+      navigate({
+        to: '/',
+        search: (prev: z.infer<typeof searchParamsSchema>) => ({
+          ...prev,
+          id: searchResults[0].id,
+        }),
+      })
     }
   }, [navigate, searchResults])
 
   const handleItemSelect = (id: number) => {
     setShowAllItems(false)
-    navigate({ to: '/', search: { id: id } })
+    navigate({
+      to: '/',
+      search: (prev: z.infer<typeof searchParamsSchema>) => ({ ...prev, id }),
+    })
   }
 
   const handleSearchChange = (value: string) => {
@@ -62,14 +71,20 @@ function App() {
     setShowAllItems(false)
 
     if (selectedItemId) {
-      navigate({ to: '/', search: {} })
+      navigate({ to: '/' })
     }
   }
 
   const handleShowToggle = () => {
     setSearchQuery('')
     setShowAllItems((prev) => !prev)
-    navigate({ to: '/', search: {} })
+    navigate({
+      to: '/',
+      search: (prev: z.infer<typeof searchParamsSchema>) => ({
+        ...prev,
+        id: undefined,
+      }),
+    })
   }
 
   return (
@@ -101,8 +116,6 @@ function App() {
           onFocus={() => setIsInputFocused(true)}
           onBlur={() => setIsInputFocused(false)}
           placeholder="Search for items..."
-          sortBy={sortBy}
-          onSortChange={setSortBy}
           showAll={showAllItems}
           onToggleShowAll={handleShowToggle}
         />

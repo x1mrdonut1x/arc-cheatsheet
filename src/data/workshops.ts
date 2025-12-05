@@ -6,6 +6,10 @@ export const workshops: Array<Workshop> = [
     name: 'Scrappy',
     levels: [
       {
+        value: 1,
+        items: [],
+      },
+      {
         value: 2,
         items: [{ id: 56, amount: 1 }],
       },

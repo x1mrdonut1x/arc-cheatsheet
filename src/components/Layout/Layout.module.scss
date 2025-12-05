@@ -20,10 +20,22 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      radial-gradient(ellipse at 20% 20%, color-mix(in srgb, var(--color-primary) 15%, transparent) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, color-mix(in srgb, var(--color-primary-light) 10%, transparent) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-primary-dark) 5%, transparent) 0%, transparent 70%);
+    background:
+      radial-gradient(
+        ellipse at 20% 20%,
+        color-mix(in srgb, var(--color-primary) 15%, transparent) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 80%,
+        color-mix(in srgb, var(--color-primary-light) 10%, transparent) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 50% 50%,
+        color-mix(in srgb, var(--color-primary-dark) 5%, transparent) 0%,
+        transparent 70%
+      );
     pointer-events: none;
   }
 }
@@ -35,21 +47,18 @@
 }
 
 .footer {
-  padding: 24px;
+  padding: 12px 24px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   position: relative;
   z-index: 1;
-  border-top: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+  border-top: 1px solid
+    color-mix(in srgb, var(--color-primary) 15%, transparent);
   background: color-mix(in srgb, var(--color-bg-dark) 50%, transparent);
   backdrop-filter: blur(10px);
-}
-
-.footerLinks {
-  display: flex;
-  gap: 20px;
 }
 
 .footerLink {
@@ -59,18 +68,13 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   background: color-mix(in srgb, var(--color-primary) 10%, transparent);
 
   &:hover {
     color: var(--color-primary-light);
     background: color-mix(in srgb, var(--color-primary) 20%, transparent);
     transform: translateY(-2px);
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -94,5 +98,32 @@
       color: var(--color-primary);
       text-decoration: underline;
     }
+  }
+}
+
+.backButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-bg-medium) 90%, transparent);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px
+      color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 }
