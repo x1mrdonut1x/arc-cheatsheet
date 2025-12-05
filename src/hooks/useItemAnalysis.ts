@@ -261,5 +261,11 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
         allProjectsCompleted,
       },
     }
-  }, [item, isQuestCompleted, isWorkshopCompleted, isProjectCompleted, isProjectTracking])
+  }, [
+    item,
+    isQuestCompleted,
+    isWorkshopCompleted,
+    isProjectCompleted,
+    isProjectTracking,
+  ])
 }

@@ -4,7 +4,8 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 16px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-quest) 20%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-quest) 20%, transparent);
 }
 
 .traderCircle {

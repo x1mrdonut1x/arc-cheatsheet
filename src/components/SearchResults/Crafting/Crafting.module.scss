@@ -12,7 +12,8 @@
 
 .recipe:not(:last-child) {
   padding-bottom: 16px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-text-muted) 20%, transparent);
 }
 
 .workstation {

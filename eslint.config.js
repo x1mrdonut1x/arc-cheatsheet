@@ -1,10 +1,10 @@
 import { tanstackConfig } from '@tanstack/eslint-config'
-import reactHooks from 'eslint-plugin-react-hooks'
 import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 export default [
   {
-    ignores: ['*.config.js', '*.config.ts'],
+    ignores: ['**/*', '!src/**'],
   },
   ...tanstackConfig,
   {

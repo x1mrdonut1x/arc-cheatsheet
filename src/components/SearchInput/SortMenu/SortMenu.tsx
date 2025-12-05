@@ -1,5 +1,4 @@
 import { useNavigate, useSearch } from '@tanstack/react-router'
-import classNames from 'classnames'
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '../../Button'
@@ -35,13 +34,34 @@ export function SortMenu() {
   const handleSortSelect = (option: SortOption) => {
     if (sortBy !== option) {
       // First click on a new field: descending
-      void navigate({ to: '/', search: (prev: Record<string, unknown>) => ({ ...prev, sortBy: option, sortDirection: 'desc' }) })
+      void navigate({
+        to: '/',
+        search: (prev: Record<string, unknown>) => ({
+          ...prev,
+          sortBy: option,
+          sortDirection: 'desc',
+        }),
+      })
     } else if (sortDirection === 'desc') {
       // Second click: ascending
-      void navigate({ to: '/', search: (prev: Record<string, unknown>) => ({ ...prev, sortBy: option, sortDirection: 'asc' }) })
+      void navigate({
+        to: '/',
+        search: (prev: Record<string, unknown>) => ({
+          ...prev,
+          sortBy: option,
+          sortDirection: 'asc',
+        }),
+      })
     } else {
       // Third click: reset
-      void navigate({ to: '/', search: (prev: Record<string, unknown>) => ({ ...prev, sortBy: undefined, sortDirection: undefined }) })
+      void navigate({
+        to: '/',
+        search: (prev: Record<string, unknown>) => ({
+          ...prev,
+          sortBy: undefined,
+          sortDirection: undefined,
+        }),
+      })
     }
     setShowMenu(false)
   }

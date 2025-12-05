@@ -24,7 +24,8 @@
 
 .trackingSection {
   padding: 16px 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-project) 15%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-project) 15%, transparent);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -104,9 +105,11 @@
 }
 
 .stageCompleted {
-  background: linear-gradient(145deg, 
+  background: linear-gradient(
+    145deg,
     color-mix(in srgb, var(--color-project) 25%, transparent) 0%,
-    color-mix(in srgb, var(--color-project-dark) 20%, transparent) 100%);
+    color-mix(in srgb, var(--color-project-dark) 20%, transparent) 100%
+  );
   border-color: var(--color-project);
 
   .stageLevel {

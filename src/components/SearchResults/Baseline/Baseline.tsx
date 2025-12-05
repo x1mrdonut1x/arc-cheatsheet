@@ -1,7 +1,7 @@
 import { AlertCircle, Coins, Package, Recycle } from 'lucide-react'
 import { Card } from '../../Card/Card'
-import { BreakdownSection } from './BreakdownSection'
 import styles from './Baseline.module.scss'
+import { BreakdownSection } from './BreakdownSection'
 
 interface BaselineProps {
   recommendation: 'keep' | 'sell' | 'recycle'
