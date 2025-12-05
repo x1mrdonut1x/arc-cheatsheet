@@ -15,6 +15,7 @@ function setStorageValue<T>(key: string, value: T): void {
     // Dispatch a custom event so other tabs/components can react
     window.dispatchEvent(new StorageEvent('storage', { key }))
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.warn(`Error setting localStorage key "${key}":`, error)
   }
 }

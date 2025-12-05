@@ -1,5 +1,5 @@
 import { useSearch } from '@tanstack/react-router'
-import { Hammer } from 'lucide-react'
+import { Split } from 'lucide-react'
 import type { RecycledFromInfo } from '../../../hooks/useItemAnalysis'
 import { Card } from '../../Card/Card'
 import { ItemGrid } from '../../ItemGrid/ItemGrid'
@@ -20,7 +20,7 @@ export function RecycledFrom({
   }
 
   return (
-    <Card variant="secondary" title="Recycled from" icon={<Hammer size={18} />}>
+    <Card variant="secondary" title="Recycled from" icon={<Split size={18} />}>
       <ItemGrid
         items={recycledFromItems}
         variant="secondary"

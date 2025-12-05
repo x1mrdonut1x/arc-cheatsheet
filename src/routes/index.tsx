@@ -47,7 +47,6 @@ function App() {
 
   useLayoutEffect(() => {
     if (searchResults.length === 1) {
-      console.log('assaddas')
       navigate({
         to: '/',
         search: (prev: z.infer<typeof searchParamsSchema>) => ({
@@ -75,9 +74,7 @@ function App() {
     }
   }
 
-  console.log(showAllItems)
   const handleShowToggle = () => {
-    console.log('toggle')
     setSearchQuery('')
     setShowAllItems((prev) => !prev)
     navigate({

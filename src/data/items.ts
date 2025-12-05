@@ -7133,7 +7133,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 3,
         items: [
           {
@@ -7230,7 +7230,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 2,
         items: [
           {
@@ -9166,7 +9166,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 2,
         items: [
           {
@@ -9845,7 +9845,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gear&nbsp;Bench&nbsp;',
+        workstation: 'GearBench',
         workstationLevel: 3,
         items: [
           {
@@ -10207,7 +10207,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Explosives&nbsp;Station&nbsp;',
+        workstation: 'ExplosivesStation',
         workstationLevel: 3,
         items: [
           {
@@ -10316,7 +10316,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 3,
         items: [
           {
@@ -10370,7 +10370,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 1,
         items: [
           {
@@ -10424,7 +10424,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 2,
         items: [
           {
@@ -10478,7 +10478,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 3,
         items: [
           {
@@ -10586,7 +10586,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 2,
         items: [
           {
@@ -10640,7 +10640,7 @@ export const items: Array<Item> = [
     crafting: [
       {
         amount: 1,
-        workstation: 'Gunsmith&nbsp;',
+        workstation: 'Gunsmith',
         workstationLevel: 3,
         items: [
           {
@@ -13010,48 +13010,6 @@ export const items: Array<Item> = [
     ],
     meta: {
       'blueprint locked': 'Yes',
-    },
-  },
-  {
-    id: 344,
-    name: 'Wolfpack',
-    category: 'Quick Use',
-    sellPrice: 5000,
-    rarity: 'Epic',
-    recyclesTo: [],
-    salvagesTo: [],
-    imageUrl:
-      'https://arcraiders.wiki/w/images/thumb/2/24/Wolfpack.png/348px-Wolfpack.png.webp',
-    maxStackSize: 1,
-    weight: 1,
-    sources: [
-      {
-        type: 'Scavenging',
-      },
-      {
-        type: 'Crafting',
-      },
-    ],
-    crafting: [
-      {
-        amount: 1,
-        workstation: 'Explosives Station',
-        workstationLevel: 3,
-        items: [
-          {
-            id: 65,
-            amount: 3,
-          },
-          {
-            id: 14,
-            amount: 2,
-          },
-        ],
-      },
-    ],
-    meta: {
-      damage: 166,
-      radius: 100,
     },
   },
 ]
