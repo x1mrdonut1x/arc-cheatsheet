@@ -12,6 +12,7 @@ import { QuestList } from './QuestList/QuestList'
 import { RecycledFrom } from './RecycledFrom/RecycledFrom'
 import { RecyclesTo } from './RecyclesTo/RecyclesTo'
 import styles from './SearchResults.module.scss'
+import { UsedToCraft } from './UsedToCraft/UsedToCraft'
 import { WorkshopUpgrades } from './WorkshopUpgrades/WorkshopUpgrades'
 
 interface SearchResultsProps {
@@ -97,6 +98,11 @@ export function SearchResults({
             hasProjects={analysis.projectStages.length > 0}
           />
           <Crafting
+            item={items[0]}
+            allItems={allItems}
+            onItemSelect={onItemSelect}
+          />
+          <UsedToCraft
             item={items[0]}
             allItems={allItems}
             onItemSelect={onItemSelect}
