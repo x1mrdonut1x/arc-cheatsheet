@@ -8,6 +8,11 @@
   padding: 20px;
   overflow: hidden;
   max-width: 650px;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    max-width: 100%;
+  }
 }
 
 .cardNoPadding {

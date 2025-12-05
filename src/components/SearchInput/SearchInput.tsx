@@ -39,7 +39,10 @@ export function SearchInput({
       </div>
 
       <div className={styles.iconButtons}>
-        <SortMenu />
+        <SortMenu
+          iconButtonClass={styles.iconButton}
+          iconButtonActiveClass={styles.iconButtonActive}
+        />
 
         {/* Show All Icon */}
         <button

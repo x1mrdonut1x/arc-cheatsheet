@@ -1,3 +1,21 @@
 # https://www.robotstxt.org/robotstxt.html
+# ARC Raiders Cheatsheet - Item Guide
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+Disallow: /_*
+
+# Sitemap
+Sitemap: https://x1mrdonut1x.github.io/arc-cheatsheet/sitemap.xml
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
+
+# Google Bot specific
+User-agent: Googlebot
+Allow: /
+
+# Bing Bot specific  
+User-agent: Bingbot
+Allow: /

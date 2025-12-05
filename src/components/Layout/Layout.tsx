@@ -23,8 +23,10 @@ export function Layout({ children }: LayoutProps) {
           <ArrowLeft size={20} />
         </button>
       )}
-      <QuestCompletion />
-      <WorkshopCompletion />
+      <div className={styles.sidebar}>
+        <QuestCompletion />
+        <WorkshopCompletion />
+      </div>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <p className={styles.dataSource}>

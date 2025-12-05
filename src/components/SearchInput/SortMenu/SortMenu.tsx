@@ -14,7 +14,12 @@ const sortOptions: Array<{ value: SortOption; label: string }> = [
   { value: 'category', label: 'Category' },
 ]
 
-export function SortMenu() {
+interface SortMenuProps {
+  iconButtonClass: string
+  iconButtonActiveClass: string
+}
+
+export function SortMenu({ iconButtonClass, iconButtonActiveClass }: SortMenuProps) {
   const { sortBy, sortDirection } = useSearch({ from: '/' })
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState(false)
@@ -60,8 +65,8 @@ export function SortMenu() {
     <div className={styles.filterWrapper} ref={menuRef}>
       <button
         type="button"
-        className={classNames(styles.iconButton, {
-          [styles.iconButtonActive]: sortBy !== undefined,
+        className={classNames(iconButtonClass, {
+          [iconButtonActiveClass]: sortBy !== undefined,
         })}
         onClick={() => setShowMenu(!showMenu)}
         title="Sort by"
