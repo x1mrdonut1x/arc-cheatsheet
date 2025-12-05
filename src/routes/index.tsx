@@ -29,14 +29,13 @@ function App() {
   const debouncedQuery = useDebounce(searchQuery, 300)
 
   const { data: searchResults = [] } = useSearchItems(
-    debouncedQuery,
+    showAllItems ? searchQuery : debouncedQuery,
     sortBy ?? null,
     sortDirection ?? null,
     showAllItems,
   )
   const { data: selectedItem } = useGetItem(selectedItemId)
 
-  // Derive display items from state
   const displayItems = selectedItem ? [selectedItem] : searchResults
 
   // Show selected item name only when input is not focused
@@ -48,6 +47,7 @@ function App() {
 
   useLayoutEffect(() => {
     if (searchResults.length === 1) {
+      console.log('assaddas')
       navigate({
         to: '/',
         search: (prev: z.infer<typeof searchParamsSchema>) => ({
@@ -75,7 +75,9 @@ function App() {
     }
   }
 
+  console.log(showAllItems)
   const handleShowToggle = () => {
+    console.log('toggle')
     setSearchQuery('')
     setShowAllItems((prev) => !prev)
     navigate({

@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
 import type { RecycledItemInfo } from '../../../hooks/useItemAnalysis'
 import { Card } from '../../Card/Card'
-import { ItemGrid } from '../ItemGrid/ItemGrid'
+import { ItemGrid } from '../../ItemGrid/ItemGrid'
 import styles from './RecyclesTo.module.scss'
 
 interface RecyclesToProps {

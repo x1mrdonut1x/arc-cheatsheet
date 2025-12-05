@@ -6,7 +6,8 @@ import { Card } from '../Card/Card'
 import { Baseline } from './Baseline/Baseline'
 import { Crafting } from './Crafting/Crafting'
 import { ItemDetails } from './ItemDetails/ItemDetails'
-import { ItemTile } from './ItemTile/ItemTile'
+import { ItemTile } from '../ItemTile/ItemTile'
+import { Project } from './Project/Project'
 import { QuestList } from './QuestList/QuestList'
 import { RecyclesTo } from './RecyclesTo/RecyclesTo'
 import styles from './SearchResults.module.scss'
@@ -87,10 +88,13 @@ export function SearchResults({
             totalNeeded={analysis.baseline.totalNeeded}
             questsNeeded={analysis.baseline.questsNeeded}
             upgradesNeeded={analysis.baseline.upgradesNeeded}
+            projectStagesNeeded={analysis.baseline.projectStagesNeeded}
             allQuestsCompleted={analysis.baseline.allQuestsCompleted}
             allUpgradesCompleted={analysis.baseline.allUpgradesCompleted}
+            allProjectsCompleted={analysis.baseline.allProjectsCompleted}
             hasQuests={analysis.relatedQuests.length > 0}
             hasUpgrades={analysis.upgrades.length > 0}
+            hasProjects={analysis.projectStages.length > 0}
           />
           <Crafting
             item={items[0]}
@@ -110,6 +114,11 @@ export function SearchResults({
           <WorkshopUpgrades
             item={items[0]}
             upgrades={analysis.upgrades}
+            onItemSelect={onItemSelect}
+          />
+          <Project
+            item={items[0]}
+            stages={analysis.projectStages}
             onItemSelect={onItemSelect}
           />
           <UsedIn

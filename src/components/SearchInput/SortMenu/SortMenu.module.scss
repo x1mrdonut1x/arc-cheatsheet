@@ -17,28 +17,9 @@
 }
 
 .filterOption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
   padding: 10px 14px;
-  border: none;
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--color-text-secondary);
-  font-size: 14px;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
-  }
-
-  &Active {
-    background: color-mix(in srgb, var(--color-primary) 30%, transparent);
-    color: var(--color-primary);
-  }
+  justify-content: space-between;
 }
 
 .sortArrow {

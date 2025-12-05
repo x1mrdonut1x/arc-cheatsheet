@@ -67,3 +67,9 @@ export type Workshop = {
     items: Array<{ id: number; amount: number }>
   }>
 }
+
+export type Project = {
+  level: number
+  name: string
+  items: Array<{ id: number; amount: number }>
+}

@@ -2,7 +2,7 @@ import { Check, Wrench } from 'lucide-react'
 import type { Item } from '../../../data/types'
 import type { UpgradeInfo } from '../../../hooks/useItemAnalysis'
 import { Card } from '../../Card/Card'
-import { ItemGrid } from '../ItemGrid/ItemGrid'
+import { ItemGrid } from '../../ItemGrid/ItemGrid'
 import styles from './WorkshopUpgrades.module.scss'
 
 interface WorkshopUpgradesProps {

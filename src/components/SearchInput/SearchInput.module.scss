@@ -62,39 +62,3 @@
   display: flex;
   gap: 8px;
 }
-
-.iconButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 2px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
-  border-radius: var(--radius-lg);
-  background: color-mix(in srgb, var(--color-bg-medium) 80%, transparent);
-  color: color-mix(in srgb, var(--color-primary) 60%, transparent);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-  }
-
-  &:hover {
-    border-color: color-mix(in srgb, var(--color-primary) 80%, transparent);
-    color: var(--color-primary);
-    box-shadow: 0 0 15px
-      color-mix(in srgb, var(--color-primary) 20%, transparent);
-  }
-
-  &Active {
-    border-color: var(--color-primary);
-    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
-    color: var(--color-primary);
-    box-shadow: 0 0 15px
-      color-mix(in srgb, var(--color-primary) 30%, transparent);
-  }
-}

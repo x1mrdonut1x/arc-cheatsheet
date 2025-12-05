@@ -2,6 +2,7 @@ import { useNavigate, useSearch } from '@tanstack/react-router'
 import classNames from 'classnames'
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
+import { Button } from '../../Button'
 import styles from './SortMenu.module.scss'
 
 export type SortOption = 'name' | 'price' | 'rarity' | 'category'
@@ -14,12 +15,7 @@ const sortOptions: Array<{ value: SortOption; label: string }> = [
   { value: 'category', label: 'Category' },
 ]
 
-interface SortMenuProps {
-  iconButtonClass: string
-  iconButtonActiveClass: string
-}
-
-export function SortMenu({ iconButtonClass, iconButtonActiveClass }: SortMenuProps) {
+export function SortMenu() {
   const { sortBy, sortDirection } = useSearch({ from: '/' })
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState(false)
@@ -63,30 +59,29 @@ export function SortMenu({ iconButtonClass, iconButtonActiveClass }: SortMenuPro
 
   return (
     <div className={styles.filterWrapper} ref={menuRef}>
-      <button
+      <Button
         type="button"
-        className={classNames(iconButtonClass, {
-          [iconButtonActiveClass]: sortBy !== undefined,
-        })}
+        variant="icon"
+        active={sortBy !== undefined}
         onClick={() => setShowMenu(!showMenu)}
         title="Sort by"
       >
         <ArrowUpDown size={20} />
-      </button>
+      </Button>
       {showMenu && (
         <div className={styles.filterMenu}>
           {sortOptions.map((option) => (
-            <button
+            <Button
               key={option.value}
               type="button"
-              className={classNames(styles.filterOption, {
-                [styles.filterOptionActive]: sortBy === option.value,
-              })}
+              variant="ghost"
+              active={sortBy === option.value}
+              className={styles.filterOption}
               onClick={() => handleSortSelect(option.value)}
             >
               <span>Sort by {option.label}</span>
               {renderSortIcon(option.value)}
-            </button>
+            </Button>
           ))}
         </div>
       )}

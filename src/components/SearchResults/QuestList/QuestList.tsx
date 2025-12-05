@@ -4,7 +4,7 @@ import type { Item } from '../../../data/types'
 import type { QuestInfo } from '../../../hooks/useItemAnalysis'
 import { AnimatedList } from '../../AnimatedList'
 import { Card } from '../../Card/Card'
-import { ItemTile } from '../ItemTile/ItemTile'
+import { ItemTile } from '../../ItemTile/ItemTile'
 import styles from './QuestList.module.scss'
 
 interface QuestListProps {

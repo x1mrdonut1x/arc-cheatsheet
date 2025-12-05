@@ -4,8 +4,9 @@
 const config = {
   semi: false,
   singleQuote: true,
-  trailingComma: "all",
-  plugins: ["prettier-plugin-organize-imports"],
-};
+  trailingComma: 'all',
+  printWidth: 120,
+  plugins: ['prettier-plugin-organize-imports'],
+}
 
-export default config;
+export default config

@@ -1,8 +1,8 @@
-import classNames from 'classnames'
 import { useCallback, useState } from 'react'
-import { createPortal } from 'react-dom'
 import { traders } from '../../data/traders'
 import { useCompletedQuests } from '../../hooks/useCompletedQuests'
+import { Button } from '../Button'
+import { SidePanel } from '../SidePanel'
 import styles from './QuestCompletion.module.scss'
 import { QuestsList } from './QuestsList'
 import { TraderSelector } from './TraderSelector'
@@ -18,7 +18,7 @@ export function QuestCompletion() {
 
   return (
     <>
-      <button
+      <Button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -35,48 +35,25 @@ export function QuestCompletion() {
           <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
         </svg>
         <span className={styles.buttonText}>Quest Completion</span>
-      </button>
+      </Button>
 
-      {isOpen && createPortal(
-        <>
-          <div className={styles.backdrop} onClick={handleClose} />
-          <div
-            className={classNames(styles.container, {
-              [styles.containerOpen]: isOpen,
-            })}
-          >
-            <div className={styles.header}>
-              <h3 className={styles.title}>Quest Completion</h3>
-              <button
-                className={styles.closeButton}
-                onClick={handleClose}
-                aria-label="Close"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+      <SidePanel
+        isOpen={isOpen}
+        onClose={handleClose}
+        title="Quest Completion"
+        variant="quest"
+      >
+        <TraderSelector
+          selectedTraderId={selectedTraderId}
+          onSelectTrader={setSelectedTraderId}
+        />
 
-            <TraderSelector
-              selectedTraderId={selectedTraderId}
-              onSelectTrader={setSelectedTraderId}
-            />
-
-            <QuestsList
-              traderId={selectedTraderId}
-              completedQuests={completedQuests}
-              onToggleQuest={toggleQuest}
-            />
-          </div>
-        </>,
-        document.body
-      )}
+        <QuestsList
+          traderId={selectedTraderId}
+          completedQuests={completedQuests}
+          onToggleQuest={toggleQuest}
+        />
+      </SidePanel>
     </>
   )
 }

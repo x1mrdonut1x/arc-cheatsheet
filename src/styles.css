@@ -21,6 +21,11 @@
   --color-workshop-light: #8bffff;
   --color-workshop-dark: #4dd4d5;
 
+  /* Project color - Red theme */
+  --color-project: #fb0101;
+  --color-project-light: #ff4444;
+  --color-project-dark: #cc0000;
+
   /* Rarity colors */
   --color-rarity-common: #9ca3af;
   --color-rarity-uncommon: #22c55e;

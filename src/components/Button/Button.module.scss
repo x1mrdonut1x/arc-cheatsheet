@@ -1,0 +1,148 @@
+@use '../../styles/mixins' as *;
+
+// Base button styles
+.button {
+  --button-color: var(--color-primary);
+  --button-color-light: var(--color-primary-light);
+  --button-color-dark: var(--color-primary-dark);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--button-color-light);
+    outline-offset: 2px;
+  }
+}
+
+// Size variants
+.sm {
+  padding: 6px 10px;
+  font-size: 12px;
+  gap: 6px;
+}
+
+.md {
+  padding: 10px 16px;
+  font-size: 14px;
+  gap: 8px;
+}
+
+.lg {
+  padding: 12px 20px;
+  font-size: 14px;
+  gap: 8px;
+}
+
+// Variant: default - used for sidebar toggle buttons
+.default {
+  background: linear-gradient(145deg,
+    color-mix(in srgb, var(--color-bg-medium) 90%, transparent) 0%,
+    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%);
+  border: 1px solid color-mix(in srgb, var(--button-color) 30%, transparent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    border-color: var(--button-color-light);
+    background: color-mix(in srgb, var(--button-color) 15%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--button-color) 25%, transparent);
+  }
+}
+
+// Variant: ghost - transparent background, used in menus and lists
+.ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  text-align: left;
+
+  &:hover {
+    background: color-mix(in srgb, var(--button-color) 20%, transparent);
+  }
+
+  &.active {
+    background: color-mix(in srgb, var(--button-color) 30%, transparent);
+    color: var(--button-color);
+  }
+}
+
+// Variant: icon - square icon-only buttons
+.icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid color-mix(in srgb, var(--button-color) 30%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-bg-medium) 80%, transparent);
+  color: color-mix(in srgb, var(--button-color) 60%, transparent);
+  backdrop-filter: blur(10px);
+
+  &.sm {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.lg {
+    width: 48px;
+    height: 48px;
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--button-color) 80%, transparent);
+    color: var(--button-color);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--button-color) 20%, transparent);
+  }
+
+  &.active {
+    border-color: var(--button-color);
+    background: color-mix(in srgb, var(--button-color) 20%, transparent);
+    color: var(--button-color);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--button-color) 30%, transparent);
+  }
+}
+
+// Variant: toggle - used for tracking/toggle buttons with active state
+.toggle {
+  padding: 12px 20px;
+  background: color-mix(in srgb, var(--color-bg-light) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--button-color) 30%, transparent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  font-weight: 600;
+
+  &:hover {
+    background: color-mix(in srgb, var(--button-color) 20%, transparent);
+    border-color: var(--button-color);
+  }
+
+  &.active {
+    background: linear-gradient(145deg, var(--button-color) 0%, var(--button-color-dark) 100%);
+    border-color: var(--button-color-light);
+    color: white;
+
+    &:hover {
+      background: linear-gradient(145deg, var(--button-color-light) 0%, var(--button-color) 100%);
+    }
+  }
+}

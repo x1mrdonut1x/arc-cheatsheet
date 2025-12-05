@@ -1,5 +1,6 @@
 import { AlertCircle, Coins, Package, Recycle } from 'lucide-react'
 import { Card } from '../../Card/Card'
+import { BreakdownSection } from './BreakdownSection'
 import styles from './Baseline.module.scss'
 
 interface BaselineProps {
@@ -17,10 +18,17 @@ interface BaselineProps {
     level: number
     amount: number
   }>
+  projectStagesNeeded: Array<{
+    level: number
+    name: string
+    amount: number
+  }>
   allQuestsCompleted: boolean
   allUpgradesCompleted: boolean
+  allProjectsCompleted: boolean
   hasQuests: boolean
   hasUpgrades: boolean
+  hasProjects: boolean
 }
 
 export function Baseline({
@@ -28,10 +36,13 @@ export function Baseline({
   totalNeeded,
   questsNeeded,
   upgradesNeeded,
+  projectStagesNeeded,
   allQuestsCompleted,
   allUpgradesCompleted,
+  allProjectsCompleted,
   hasQuests,
   hasUpgrades,
+  hasProjects,
 }: BaselineProps) {
   const getIcon = () => {
     switch (recommendation) {
@@ -76,53 +87,49 @@ export function Baseline({
             </p>
 
             {hasQuests && !allQuestsCompleted && (
-              <div className={styles.section}>
-                <h4 className={styles.sectionTitle}>Quests</h4>
-                <ul className={styles.breakdown}>
-                  {questsNeeded.map((quest) => (
-                    <li key={quest.id}>
-                      <span className={styles.label}>
-                        {quest.name}
-                        {quest.traderName && (
-                          <span className={styles.trader}>
-                            {' '}
-                            {quest.traderName}
-                          </span>
-                        )}
-                      </span>
-                      <span className={styles.value}>×{quest.amount}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <BreakdownSection
+                title="Quests"
+                items={questsNeeded.map((quest) => ({
+                  id: quest.id,
+                  label: quest.name,
+                  sublabel: quest.traderName,
+                  amount: quest.amount,
+                }))}
+              />
             )}
 
             {hasUpgrades && !allUpgradesCompleted && (
-              <div className={styles.section}>
-                <h4 className={styles.sectionTitle}>Workshop Upgrades</h4>
-                <ul className={styles.breakdown}>
-                  {upgradesNeeded.map((upgrade) => (
-                    <li
-                      key={`${upgrade.id}-${upgrade.level}`}
-                      className={styles.label}
-                    >
-                      <span>{upgrade.name}</span>
-                      <span className={styles.level}>Lv. {upgrade.level}</span>
-                      <span className={styles.value}>x{upgrade.amount}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <BreakdownSection
+                title="Workshop Upgrades"
+                items={upgradesNeeded.map((upgrade) => ({
+                  id: `${upgrade.id}-${upgrade.level}`,
+                  label: upgrade.name,
+                  sublabel: `Lv. ${upgrade.level}`,
+                  amount: upgrade.amount,
+                }))}
+              />
+            )}
+
+            {hasProjects && !allProjectsCompleted && (
+              <BreakdownSection
+                title="Project"
+                items={projectStagesNeeded.map((stage) => ({
+                  id: stage.level,
+                  label: stage.name,
+                  sublabel: `Stage ${stage.level}`,
+                  amount: stage.amount,
+                }))}
+              />
             )}
           </div>
         )}
 
         {recommendation !== 'keep' && (
           <p className={styles.completedMessage}>
-            {hasQuests || hasUpgrades ? (
-              <>All quests and upgrades completed!</>
+            {hasQuests || hasUpgrades || hasProjects ? (
+              <>All quests, upgrades, and project stages completed!</>
             ) : (
-              <>No quests or upgrades require this item.</>
+              <>No quests, upgrades, or project requirements.</>
             )}
           </p>
         )}

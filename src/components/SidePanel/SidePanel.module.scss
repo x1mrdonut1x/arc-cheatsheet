@@ -1,0 +1,122 @@
+@use '../../styles/mixins' as *;
+
+@mixin side-panel-variant($color, $color-light, $color-dark) {
+  background: linear-gradient(145deg,
+    color-mix(in srgb, $color-dark 15%, var(--color-bg-dark)) 0%,
+    color-mix(in srgb, $color 10%, var(--color-bg-medium)) 100%);
+  border: 1px solid color-mix(in srgb, $color 25%, transparent);
+  box-shadow:
+    0 8px 32px color-mix(in srgb, $color 20%, transparent),
+    0 0 0 1px color-mix(in srgb, $color 10%, transparent) inset;
+
+  .header {
+    border-bottom-color: color-mix(in srgb, $color 20%, transparent);
+  }
+
+  .title {
+    background: linear-gradient(135deg, $color-light 0%, $color 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .closeButton {
+    border-color: color-mix(in srgb, $color 20%, transparent);
+
+    &:hover {
+      background: color-mix(in srgb, $color 20%, transparent);
+      border-color: $color;
+    }
+
+    &:focus-visible {
+      outline-color: $color-light;
+    }
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: color-mix(in srgb, var(--color-bg-dark) 70%, transparent);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.container {
+  margin: 20px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  max-width: calc(100vw - 40px);
+  border-radius: var(--card-radius) 0 0 var(--card-radius);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease;
+  z-index: 1001;
+
+  &.quest {
+    width: 520px;
+    @include side-panel-variant(var(--color-quest), var(--color-quest-light), var(--color-quest-dark));
+  }
+
+  &.workshop {
+    @include side-panel-variant(var(--color-workshop), var(--color-workshop-light), var(--color-workshop-dark));
+  }
+
+  &.project {
+    @include side-panel-variant(var(--color-project), var(--color-project-light), var(--color-project-dark));
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid transparent;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+  }
+
+  &:hover svg {
+    color: var(--color-text-primary);
+  }
+}
+
+@include reduced-motion {
+  .backdrop,
+  .container {
+    animation: none;
+  }
+}
