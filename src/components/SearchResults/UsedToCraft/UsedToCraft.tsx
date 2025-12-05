@@ -28,9 +28,10 @@ export function UsedToCraft({
       if (seen.has(targetItem.id)) continue
 
       for (const recipe of targetItem.crafting) {
-        if (recipe.items.some((i) => i.id === item.id)) {
+        const ingredient = recipe.items.find((i) => i.id === item.id)
+        if (ingredient) {
           seen.add(targetItem.id)
-          results.push({ item: targetItem, amount: 1 })
+          results.push({ item: targetItem, amount: ingredient.amount })
           break
         }
       }
