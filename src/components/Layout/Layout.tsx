@@ -1,5 +1,6 @@
 import { useSearch } from '@tanstack/react-router'
 import { ArrowLeft, Github } from 'lucide-react'
+import { ProjectCompletion } from '../ProjectCompletion'
 import { QuestCompletion } from '../QuestCompletion'
 import { WorkshopCompletion } from '../WorkshopCompletion'
 import styles from './Layout.module.scss'
@@ -26,6 +27,7 @@ export function Layout({ children }: LayoutProps) {
       <div className={styles.sidebar}>
         <QuestCompletion />
         <WorkshopCompletion />
+        <ProjectCompletion />
       </div>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>

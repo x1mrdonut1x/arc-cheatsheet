@@ -1,9 +1,11 @@
 import { useMemo } from 'react'
 import { items as allItems } from '../data/items'
+import { projects } from '../data/project'
 import { quests } from '../data/quests'
 import { traders } from '../data/traders'
 import type { Item } from '../data/types'
 import { workshops } from '../data/workshops'
+import { useCompletedProjects } from './useCompletedProjects'
 import { useCompletedQuests } from './useCompletedQuests'
 import { useCompletedWorkshops } from './useCompletedWorkshops'
 
@@ -26,6 +28,14 @@ export interface UpgradeInfo {
   amountNeeded: number
 }
 
+export interface ProjectStageInfo {
+  level: number
+  name: string
+  ingredients: Array<{ item: Item; amount: number }>
+  isCompleted: boolean
+  amountNeeded: number
+}
+
 export interface UsedInInfo {
   item: Item
   amount: number
@@ -42,6 +52,7 @@ export interface ItemAnalysis {
   usedInItems: Array<UsedInInfo>
   recycledItems: Array<RecycledItemInfo>
   upgrades: Array<UpgradeInfo>
+  projectStages: Array<ProjectStageInfo>
   relatedQuests: Array<QuestInfo>
   baseline: {
     recommendation: 'keep' | 'sell' | 'recycle'
@@ -58,14 +69,22 @@ export interface ItemAnalysis {
       level: number
       amount: number
     }>
+    projectStagesNeeded: Array<{
+      level: number
+      name: string
+      amount: number
+    }>
     allQuestsCompleted: boolean
     allUpgradesCompleted: boolean
+    allProjectsCompleted: boolean
   }
 }
 
 export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
   const { isCompleted: isQuestCompleted } = useCompletedQuests()
   const { isCompleted: isWorkshopCompleted } = useCompletedWorkshops()
+  const { isCompleted: isProjectCompleted, isTracking: isProjectTracking } =
+    useCompletedProjects()
 
   return useMemo(() => {
     if (!item) return null
@@ -147,9 +166,36 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
       }
     }
 
+    // Get project stages (only if tracking is enabled)
+    const projectStages: Array<ProjectStageInfo> = []
+    if (isProjectTracking) {
+      for (const project of projects) {
+        const requirement = project.items.find((i) => i.id === item.id)
+        if (requirement) {
+          const ingredients = project.items
+            .map((projectItem) => {
+              const foundItem = allItems.find((i) => i.id === projectItem.id)
+              return foundItem
+                ? { item: foundItem, amount: projectItem.amount }
+                : null
+            })
+            .filter((x) => x !== null)
+
+          projectStages.push({
+            level: project.level,
+            name: project.name,
+            ingredients,
+            isCompleted: isProjectCompleted(project.level),
+            amountNeeded: requirement.amount,
+          })
+        }
+      }
+    }
+
     // Calculate baseline recommendation
     const incompleteQuests = relatedQuests.filter((q) => !q.isCompleted)
     const incompleteUpgrades = upgrades.filter((u) => !u.isCompleted)
+    const incompleteProjects = projectStages.filter((p) => !p.isCompleted)
 
     const questsNeeded = incompleteQuests.map((q) => ({
       id: q.id,
@@ -163,17 +209,25 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
       level: u.level,
       amount: u.amountNeeded,
     }))
+    const projectStagesNeeded = incompleteProjects.map((p) => ({
+      level: p.level,
+      name: p.name,
+      amount: p.amountNeeded,
+    }))
     const totalNeeded =
       questsNeeded.reduce((sum, q) => sum + q.amount, 0) +
-      upgradesNeeded.reduce((sum, u) => sum + u.amount, 0)
+      upgradesNeeded.reduce((sum, u) => sum + u.amount, 0) +
+      projectStagesNeeded.reduce((sum, p) => sum + p.amount, 0)
 
     const allQuestsCompleted =
       relatedQuests.length === 0 || incompleteQuests.length === 0
     const allUpgradesCompleted =
       upgrades.length === 0 || incompleteUpgrades.length === 0
+    const allProjectsCompleted =
+      projectStages.length === 0 || incompleteProjects.length === 0
 
     let recommendation: 'keep' | 'sell' | 'recycle'
-    if (!allQuestsCompleted || !allUpgradesCompleted) {
+    if (!allQuestsCompleted || !allUpgradesCompleted || !allProjectsCompleted) {
       recommendation = 'keep'
     } else if (recycledItems.length === 0) {
       recommendation = 'sell'
@@ -194,15 +248,18 @@ export function useItemAnalysis(item: Item | undefined): ItemAnalysis | null {
       usedInItems,
       recycledItems,
       upgrades,
+      projectStages,
       relatedQuests,
       baseline: {
         recommendation,
         totalNeeded,
         questsNeeded,
         upgradesNeeded,
+        projectStagesNeeded,
         allQuestsCompleted,
         allUpgradesCompleted,
+        allProjectsCompleted,
       },
     }
-  }, [item, isQuestCompleted, isWorkshopCompleted])
+  }, [item, isQuestCompleted, isWorkshopCompleted, isProjectCompleted, isProjectTracking])
 }

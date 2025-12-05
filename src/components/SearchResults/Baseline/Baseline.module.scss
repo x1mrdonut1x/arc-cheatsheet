@@ -100,36 +100,24 @@
 .breakdown li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   padding: 8px 12px;
   background: color-mix(in srgb, var(--color-text-muted) 10%, transparent);
   border-radius: var(--radius-sm);
   font-size: 13px;
+  gap: 4px;
 }
 
 .label {
   color: var(--color-text-primary);
-  display: flex;
-  gap: 4px;
-  align-items: center;
 }
 
-.trader {
+.secondary {
   color: var(--color-text-muted);
   font-size: 12px;
-}
-
-.level {
-  color: var(--color-text-muted);
-  font-size: 12px;
-  background: color-mix(in srgb, var(--color-text-muted) 15%, transparent);
-  padding: 2px 6px;
-  border-radius: var(--radius-sm);
-  margin-left: 6px;
 }
 
 .value {
-  margin-left: 4px;
   color: var(--color-warning, #fbbf24);
   font-weight: 600;
 }

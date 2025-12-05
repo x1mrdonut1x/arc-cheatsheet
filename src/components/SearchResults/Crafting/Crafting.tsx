@@ -3,7 +3,7 @@ import { Merge } from 'lucide-react'
 import { useMemo } from 'react'
 import type { Item } from '../../../data/types'
 import { Card } from '../../Card/Card'
-import { ItemGrid } from '../ItemGrid/ItemGrid'
+import { ItemGrid } from '../../ItemGrid/ItemGrid'
 import styles from './Crafting.module.scss'
 
 interface CraftingProps {
