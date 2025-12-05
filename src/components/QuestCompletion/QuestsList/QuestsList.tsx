@@ -18,7 +18,7 @@ export function QuestsList({
   const trader = traders.find((t) => t.id === traderId)
   const traderQuests = useMemo(
     () => quests.filter((quest) => quest.trader === traderId),
-    [traderId]
+    [traderId],
   )
 
   if (traderQuests.length === 0) {

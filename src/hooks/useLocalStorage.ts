@@ -21,7 +21,7 @@ function setStorageValue<T>(key: string, value: T): void {
 
 export function useLocalStorage<T>(
   key: string,
-  initialValue: T
+  initialValue: T,
 ): [T, (value: T | ((prev: T) => T)) => void] {
   const subscribe = useCallback(
     (onStoreChange: () => void) => {
@@ -33,20 +33,24 @@ export function useLocalStorage<T>(
       window.addEventListener('storage', handleStorage)
       return () => window.removeEventListener('storage', handleStorage)
     },
-    [key]
+    [key],
   )
 
   const getSnapshot = useCallback(
     () => JSON.stringify(getStorageValue(key, initialValue)),
-    [key, initialValue]
+    [key, initialValue],
   )
 
   const getServerSnapshot = useCallback(
     () => JSON.stringify(initialValue),
-    [initialValue]
+    [initialValue],
   )
 
-  const storedValue = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  const storedValue = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  )
 
   const setValue = useCallback(
     (value: T | ((prev: T) => T)) => {
@@ -54,7 +58,7 @@ export function useLocalStorage<T>(
       const newValue = value instanceof Function ? value(currentValue) : value
       setStorageValue(key, newValue)
     },
-    [key, initialValue]
+    [key, initialValue],
   )
 
   // Sync initialValue to storage if key doesn't exist

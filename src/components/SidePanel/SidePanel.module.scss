@@ -1,9 +1,11 @@
 @use '../../styles/mixins' as *;
 
 @mixin side-panel-variant($color, $color-light, $color-dark) {
-  background: linear-gradient(145deg,
+  background: linear-gradient(
+    145deg,
     color-mix(in srgb, $color-dark 15%, var(--color-bg-dark)) 0%,
-    color-mix(in srgb, $color 10%, var(--color-bg-medium)) 100%);
+    color-mix(in srgb, $color 10%, var(--color-bg-medium)) 100%
+  );
   border: 1px solid color-mix(in srgb, $color 25%, transparent);
   box-shadow:
     0 8px 32px color-mix(in srgb, $color 20%, transparent),
@@ -64,26 +66,46 @@
 
   &.quest {
     width: 520px;
-    @include side-panel-variant(var(--color-quest), var(--color-quest-light), var(--color-quest-dark));
+    @include side-panel-variant(
+      var(--color-quest),
+      var(--color-quest-light),
+      var(--color-quest-dark)
+    );
   }
 
   &.workshop {
-    @include side-panel-variant(var(--color-workshop), var(--color-workshop-light), var(--color-workshop-dark));
+    @include side-panel-variant(
+      var(--color-workshop),
+      var(--color-workshop-light),
+      var(--color-workshop-dark)
+    );
   }
 
   &.project {
-    @include side-panel-variant(var(--color-project), var(--color-project-light), var(--color-project-dark));
+    @include side-panel-variant(
+      var(--color-project),
+      var(--color-project-light),
+      var(--color-project-dark)
+    );
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .header {

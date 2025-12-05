@@ -50,7 +50,9 @@ export function QuestItem({
       <div className={styles.content}>
         <div className={styles.header}>
           <h4 className={styles.name}>{name}</h4>
-          {isCompleted && <span className={styles.completedBadge}>Completed</span>}
+          {isCompleted && (
+            <span className={styles.completedBadge}>Completed</span>
+          )}
         </div>
         <p className={styles.description}>{description}</p>
       </div>

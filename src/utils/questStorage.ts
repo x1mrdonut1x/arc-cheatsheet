@@ -28,13 +28,13 @@ export function isQuestCompleted(questId: number): boolean {
 export function toggleQuestCompletion(questId: number): boolean {
   const completedQuests = loadCompletedQuests()
   const isNowCompleted = !completedQuests.has(questId)
-  
+
   if (isNowCompleted) {
     completedQuests.add(questId)
   } else {
     completedQuests.delete(questId)
   }
-  
+
   saveCompletedQuests(completedQuests)
   return isNowCompleted
 }

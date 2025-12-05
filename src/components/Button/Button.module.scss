@@ -48,9 +48,11 @@
 
 // Variant: default - used for sidebar toggle buttons
 .default {
-  background: linear-gradient(145deg,
+  background: linear-gradient(
+    145deg,
     color-mix(in srgb, var(--color-bg-medium) 90%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%);
+    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%
+  );
   border: 1px solid color-mix(in srgb, var(--button-color) 30%, transparent);
   border-radius: var(--radius-lg);
   color: var(--color-text-primary);
@@ -61,7 +63,8 @@
     border-color: var(--button-color-light);
     background: color-mix(in srgb, var(--button-color) 15%, transparent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px color-mix(in srgb, var(--button-color) 25%, transparent);
+    box-shadow: 0 4px 20px
+      color-mix(in srgb, var(--button-color) 25%, transparent);
   }
 }
 
@@ -111,14 +114,16 @@
   &:hover {
     border-color: color-mix(in srgb, var(--button-color) 80%, transparent);
     color: var(--button-color);
-    box-shadow: 0 0 15px color-mix(in srgb, var(--button-color) 20%, transparent);
+    box-shadow: 0 0 15px
+      color-mix(in srgb, var(--button-color) 20%, transparent);
   }
 
   &.active {
     border-color: var(--button-color);
     background: color-mix(in srgb, var(--button-color) 20%, transparent);
     color: var(--button-color);
-    box-shadow: 0 0 15px color-mix(in srgb, var(--button-color) 30%, transparent);
+    box-shadow: 0 0 15px
+      color-mix(in srgb, var(--button-color) 30%, transparent);
   }
 }
 
@@ -137,12 +142,20 @@
   }
 
   &.active {
-    background: linear-gradient(145deg, var(--button-color) 0%, var(--button-color-dark) 100%);
+    background: linear-gradient(
+      145deg,
+      var(--button-color) 0%,
+      var(--button-color-dark) 100%
+    );
     border-color: var(--button-color-light);
     color: white;
 
     &:hover {
-      background: linear-gradient(145deg, var(--button-color-light) 0%, var(--button-color) 100%);
+      background: linear-gradient(
+        145deg,
+        var(--button-color-light) 0%,
+        var(--button-color) 100%
+      );
     }
   }
 }
