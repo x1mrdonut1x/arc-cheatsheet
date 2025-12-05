@@ -48,15 +48,15 @@ The app will be available at `http://localhost:3000`
 
 ### Available Scripts
 
-| Command       | Description                              |
-| ------------- | ---------------------------------------- |
-| `pnpm dev`    | Start development server on port 3000   |
-| `pnpm build`  | Build for production                     |
-| `pnpm serve`  | Preview production build                 |
-| `pnpm test`   | Run tests                                |
-| `pnpm lint`   | Run ESLint                               |
-| `pnpm format` | Format all files with Prettier           |
-| `pnpm ci`     | Check formatting and lint       |
+| Command       | Description                           |
+| ------------- | ------------------------------------- |
+| `pnpm dev`    | Start development server on port 3000 |
+| `pnpm build`  | Build for production                  |
+| `pnpm serve`  | Preview production build              |
+| `pnpm test`   | Run tests                             |
+| `pnpm lint`   | Run ESLint                            |
+| `pnpm format` | Format all files with Prettier        |
+| `pnpm ci`     | Check formatting and lint             |
 
 ## Project Structure
 

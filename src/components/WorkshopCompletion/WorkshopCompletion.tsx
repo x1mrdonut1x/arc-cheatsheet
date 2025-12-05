@@ -40,6 +40,7 @@ export function WorkshopCompletion() {
                 {workshop.levels.map((level) => (
                   <Button
                     key={level.value}
+                    variant="icon"
                     className={styles.levelButton}
                     active={isCompleted(workshop.id, level.value)}
                     onClick={() => toggleLevel(workshop.id, level.value)}
