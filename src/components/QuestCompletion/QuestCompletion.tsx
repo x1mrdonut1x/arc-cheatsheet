@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { traders } from '../../data/traders'
 import { useCompletedQuests } from '../../hooks/useCompletedQuests'
+import { Button } from '../Button'
 import { SidePanel } from '../SidePanel'
 import styles from './QuestCompletion.module.scss'
 import { QuestsList } from './QuestsList'
@@ -17,7 +18,7 @@ export function QuestCompletion() {
 
   return (
     <>
-      <button
+      <Button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -34,7 +35,7 @@ export function QuestCompletion() {
           <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
         </svg>
         <span className={styles.buttonText}>Quest Completion</span>
-      </button>
+      </Button>
 
       <SidePanel
         isOpen={isOpen}

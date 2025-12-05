@@ -1,8 +1,8 @@
-import classNames from 'classnames'
 import { Wrench } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { workshops } from '../../data/workshops'
 import { useCompletedWorkshops } from '../../hooks/useCompletedWorkshops'
+import { Button } from '../Button'
 import { SidePanel } from '../SidePanel'
 import styles from './WorkshopCompletion.module.scss'
 
@@ -16,7 +16,7 @@ export function WorkshopCompletion() {
 
   return (
     <>
-      <button
+      <Button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -24,7 +24,7 @@ export function WorkshopCompletion() {
       >
         <Wrench size={18} className={styles.buttonIcon} />
         <span className={styles.buttonText}>Workshop Upgrades</span>
-      </button>
+      </Button>
 
       <SidePanel
         isOpen={isOpen}
@@ -38,20 +38,16 @@ export function WorkshopCompletion() {
               <span className={styles.workshopName}>{workshop.name}</span>
               <div className={styles.levels}>
                 {workshop.levels.map((level) => (
-                  <button
+                  <Button
                     key={level.value}
-                    className={classNames(styles.levelButton, {
-                      [styles.levelCompleted]: isCompleted(
-                        workshop.id,
-                        level.value,
-                      ),
-                    })}
+                    className={styles.levelButton}
+                    active={isCompleted(workshop.id, level.value)}
                     onClick={() => toggleLevel(workshop.id, level.value)}
                     aria-pressed={isCompleted(workshop.id, level.value)}
                     aria-label={`Level ${level.value}`}
                   >
                     {level.value}
-                  </button>
+                  </Button>
                 ))}
               </div>
             </li>

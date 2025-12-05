@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { traders } from '../../../data/traders'
+import { Button } from '../../Button'
 import styles from './TraderSelector.module.scss'
 
 import apolloImg from '../../../assets/traders/apollo.webp'
@@ -28,11 +28,11 @@ export function TraderSelector({
   return (
     <div className={styles.container}>
       {traders.map((trader) => (
-        <button
+        <Button
           key={trader.id}
-          className={classNames(styles.traderCircle, {
-            [styles.selected]: selectedTraderId === trader.id,
-          })}
+          variant="icon"
+          active={selectedTraderId === trader.id}
+          className={styles.traderCircle}
           onClick={() => onSelectTrader(trader.id)}
           title={trader.name}
           aria-label={`Select ${trader.name}`}
@@ -43,7 +43,7 @@ export function TraderSelector({
             alt={trader.name}
             className={styles.traderImage}
           />
-        </button>
+        </Button>
       ))}
     </div>
   )

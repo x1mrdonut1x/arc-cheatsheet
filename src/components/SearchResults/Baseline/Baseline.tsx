@@ -129,7 +129,7 @@ export function Baseline({
             {hasQuests || hasUpgrades || hasProjects ? (
               <>All quests, upgrades, and project stages completed!</>
             ) : (
-              <>No quests, upgrades, or project stages require this item.</>
+              <>No quests, upgrades, or project requirements.</>
             )}
           </p>
         )}

@@ -102,18 +102,6 @@
 }
 
 .closeButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  background: color-mix(in srgb, var(--color-bg-light) 50%, transparent);
-  border: 1px solid transparent;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all 0.2s ease;
-
   svg {
     width: 16px;
     height: 16px;
@@ -121,15 +109,8 @@
     transition: color 0.2s ease;
   }
 
-  &:hover {
-    svg {
-      color: var(--color-text-primary);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
+  &:hover svg {
+    color: var(--color-text-primary);
   }
 }
 

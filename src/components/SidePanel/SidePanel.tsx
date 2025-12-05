@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import type { ReactNode } from 'react'
 import { createPortal } from 'react-dom'
+import { Button } from '../Button'
 import styles from './SidePanel.module.scss'
 
 export type SidePanelVariant = 'quest' | 'workshop' | 'project'
@@ -31,7 +32,9 @@ export function SidePanel({
       >
         <div className={styles.header}>
           <h3 className={styles.title}>{title}</h3>
-          <button
+          <Button
+            variant="icon"
+            size="sm"
             className={styles.closeButton}
             onClick={onClose}
             aria-label="Close"
@@ -44,7 +47,7 @@ export function SidePanel({
             >
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
-          </button>
+          </Button>
         </div>
         {children}
       </div>

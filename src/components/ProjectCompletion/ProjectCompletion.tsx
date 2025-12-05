@@ -3,6 +3,7 @@ import { FolderKanban } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { projects } from '../../data/project'
 import { useCompletedProjects } from '../../hooks/useCompletedProjects'
+import { Button } from '../Button'
 import { SidePanel } from '../SidePanel'
 import styles from './ProjectCompletion.module.scss'
 
@@ -17,7 +18,7 @@ export function ProjectCompletion() {
 
   return (
     <>
-      <button
+      <Button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -25,7 +26,7 @@ export function ProjectCompletion() {
       >
         <FolderKanban size={18} className={styles.buttonIcon} />
         <span className={styles.buttonText}>Project</span>
-      </button>
+      </Button>
 
       <SidePanel
         isOpen={isOpen}
@@ -34,15 +35,15 @@ export function ProjectCompletion() {
         variant="project"
       >
         <div className={styles.trackingSection}>
-          <button
-            className={classNames(styles.trackingButton, {
-              [styles.trackingActive]: isTracking,
-            })}
+          <Button
+            variant="toggle"
+            className={styles.trackingButton}
+            active={isTracking}
             onClick={toggleTracking}
             aria-pressed={isTracking}
           >
             {isTracking ? 'Tracking Project' : 'Track Project'}
-          </button>
+          </Button>
           <p className={styles.trackingHint}>
             {isTracking
               ? 'Project items are included in recommendations'
@@ -53,7 +54,8 @@ export function ProjectCompletion() {
         <ul className={styles.stageList}>
           {projects.map((project) => (
             <li key={project.level} className={styles.stageItem}>
-              <button
+              <Button
+                variant="ghost"
                 className={classNames(styles.stageButton, {
                   [styles.stageCompleted]: isCompleted(project.level),
                 })}
@@ -74,7 +76,7 @@ export function ProjectCompletion() {
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 )}
-              </button>
+              </Button>
             </li>
           ))}
         </ul>

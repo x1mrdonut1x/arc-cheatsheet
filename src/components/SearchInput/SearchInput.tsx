@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { Search, TableOfContents } from 'lucide-react'
+import { Button } from '../Button'
 import styles from './SearchInput.module.scss'
 import { SortMenu } from './SortMenu'
 
@@ -39,22 +39,18 @@ export function SearchInput({
       </div>
 
       <div className={styles.iconButtons}>
-        <SortMenu
-          iconButtonClass={styles.iconButton}
-          iconButtonActiveClass={styles.iconButtonActive}
-        />
+        <SortMenu />
 
         {/* Show All Icon */}
-        <button
+        <Button
           type="button"
-          className={classNames(styles.iconButton, {
-            [styles.iconButtonActive]: showAll,
-          })}
+          variant="icon"
+          active={showAll}
           onClick={onToggleShowAll}
           title={showAll ? 'Hide all items' : 'Show all items'}
         >
           <TableOfContents size={20} />
-        </button>
+        </Button>
       </div>
     </div>
   )

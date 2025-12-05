@@ -1,33 +1,9 @@
 @use '../../styles/mixins' as *;
 
 .toggleButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: linear-gradient(145deg,
-    color-mix(in srgb, var(--color-bg-medium) 90%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg-light) 80%, transparent) 100%);
-  border: 1px solid color-mix(in srgb, var(--color-quest) 30%, transparent);
-  border-radius: var(--radius-lg);
-  color: var(--color-text-primary);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-
-  &:hover {
-    border-color: var(--color-quest-light);
-    background: color-mix(in srgb, var(--color-quest) 15%, transparent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px color-mix(in srgb, var(--color-quest) 25%, transparent);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-quest-light);
-    outline-offset: 2px;
-  }
+  --button-color: var(--color-quest);
+  --button-color-light: var(--color-quest-light);
+  --button-color-dark: var(--color-quest-dark);
 }
 
 .buttonIcon {

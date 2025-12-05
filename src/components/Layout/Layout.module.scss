@@ -125,24 +125,4 @@
   top: 20px;
   left: 20px;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
-  border-radius: var(--radius-lg);
-  background: color-mix(in srgb, var(--color-bg-medium) 90%, transparent);
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-
-  &:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-    box-shadow: 0 0 15px
-      color-mix(in srgb, var(--color-primary) 20%, transparent);
-  }
 }

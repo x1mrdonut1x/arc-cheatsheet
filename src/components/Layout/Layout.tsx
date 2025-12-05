@@ -1,5 +1,6 @@
 import { useSearch } from '@tanstack/react-router'
 import { ArrowLeft, Github } from 'lucide-react'
+import { Button } from '../Button'
 import { ProjectCompletion } from '../ProjectCompletion'
 import { QuestCompletion } from '../QuestCompletion'
 import { WorkshopCompletion } from '../WorkshopCompletion'
@@ -16,13 +17,14 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className={styles.layout}>
       {hasSearchParams && (
-        <button
+        <Button
+          variant="icon"
           className={styles.backButton}
           onClick={() => history.back()}
           aria-label="Go back"
         >
           <ArrowLeft size={20} />
-        </button>
+        </Button>
       )}
       <div className={styles.sidebar}>
         <QuestCompletion />
