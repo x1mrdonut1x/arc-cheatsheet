@@ -38,7 +38,6 @@ export function UsedToCraft({
 
     return results
   }, [item.id, allItems])
-  console.log('🚀 ~ craftableItems:', craftableItems)
 
   if (craftableItems.length === 0) {
     return null
