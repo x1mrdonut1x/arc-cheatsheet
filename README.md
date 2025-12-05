@@ -2,7 +2,7 @@
 
 A quick reference web app for ARC Raiders players to instantly know which items to sell, recycle, or keep. Stop wasting valuable loot - make smart inventory decisions.
 
-🔗 **Live Site**: [arc-cheatsheet](https://arc-cheatsheet.com)
+🔗 **Live Site**: [arc-cheatsheet](https://x1mrdonut1x.github.io/arc-cheatsheet)
 
 ## Features
 
@@ -48,15 +48,15 @@ The app will be available at `http://localhost:3000`
 
 ### Available Scripts
 
-| Command       | Description                           |
-| ------------- | ------------------------------------- |
-| `pnpm dev`    | Start development server on port 3000 |
-| `pnpm build`  | Build for production                  |
-| `pnpm serve`  | Preview production build              |
-| `pnpm test`   | Run tests                             |
-| `pnpm lint`   | Run ESLint                            |
-| `pnpm format` | Run Prettier                          |
-| `pnpm check`  | Format and lint fix                   |
+| Command       | Description                              |
+| ------------- | ---------------------------------------- |
+| `pnpm dev`    | Start development server on port 3000   |
+| `pnpm build`  | Build for production                     |
+| `pnpm serve`  | Preview production build                 |
+| `pnpm test`   | Run tests                                |
+| `pnpm lint`   | Run ESLint                               |
+| `pnpm format` | Format all files with Prettier           |
+| `pnpm ci`     | Check formatting and lint       |
 
 ## Project Structure
 
@@ -68,7 +68,6 @@ src/
 ├── lib/            # Utilities and configurations
 ├── routes/         # TanStack Router file-based routes
 ├── styles/         # Global styles and mixins
-└── utils/          # Helper functions
 ```
 
 ## Contributing
