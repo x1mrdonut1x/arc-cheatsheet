@@ -2,9 +2,8 @@ import { useSearch } from '@tanstack/react-router'
 import { Check, Flag } from 'lucide-react'
 import type { Item } from '../../../data/types'
 import type { QuestInfo } from '../../../hooks/useItemAnalysis'
-import { AnimatedList } from '../../AnimatedList'
 import { Card } from '../../Card/Card'
-import { ItemTile } from '../../ItemTile/ItemTile'
+import { ItemGrid } from '../../ItemGrid/ItemGrid'
 import styles from './QuestList.module.scss'
 
 interface QuestListProps {
@@ -44,18 +43,13 @@ export function QuestList({
               </span>
               <span className={styles.questTrader}>{quest.trader?.name}</span>
             </div>
-            <AnimatedList className={styles.itemsList}>
-              {quest.questItems.map(({ item: questItem, amount }) => (
-                <ItemTile
-                  key={questItem.id}
-                  item={questItem}
-                  amount={amount}
-                  variant="secondary"
-                  highlighted={id === questItem.id}
-                  onClick={onItemSelect}
-                />
-              ))}
-            </AnimatedList>
+            <ItemGrid
+              items={quest.questItems}
+              variant="secondary"
+              highlightedItemId={id}
+              onItemSelect={onItemSelect}
+              ariaLabel={`Items needed for ${quest.name}`}
+            />
           </li>
         ))}
       </ul>
